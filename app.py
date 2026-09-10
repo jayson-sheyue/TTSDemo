@@ -2,6 +2,7 @@
 import base64
 import json
 import os
+import re
 import threading
 import time
 from pathlib import Path
@@ -122,12 +123,97 @@ def synthesize(r: Request):
     return StreamingResponse(generate(), media_type='application/x-ndjson', headers={'X-Accel-Buffering': 'no'})
 
 
+DRAFT_PACES = (
+    '自然',
+    '缓慢，留出思考的停顿',
+    '轻快，保持吐字清晰',
+    '逐渐加快，最后放慢',
+)
+
+
 class Draft(BaseModel):
     topic: str = Field(min_length=1, max_length=1000)
     model: str = Field(default='gemini-2.5-flash', max_length=100)
     dialogue: bool = False
     speaker: str = Field(default='Host', pattern='^[A-Za-z0-9]{1,30}$')
     speaker2: str = Field(default='Guest', pattern='^[A-Za-z0-9]{1,30}$')
+    voice: str = Field(default='Kore', max_length=40)
+    voice2: str = Field(default='Puck', max_length=40)
+
+
+def _voice_brief(name: str) -> str:
+    profile = next((item for item in VOICE_PROFILES if item['name'] == name), None)
+    if not profile:
+        return name
+    return f"{profile['name']}（{profile['gender_zh']} · {profile['style_zh']}）"
+
+
+def _voice_lock_phrase(name: str) -> str:
+    profile = next((item for item in VOICE_PROFILES if item['name'] == name), None)
+    if not profile:
+        return '先写明说话人的成年声线，再写情绪'
+    if profile['gender'] == 'female':
+        return '成年女性，保持女声音高和声线'
+    return '成年男性，保持男声音高和声线'
+
+
+def draft_prompt(r: Draft) -> str:
+    tags = '、'.join(tag for tag, _label in TAGS)
+    paces = ' / '.join(DRAFT_PACES)
+    if r.dialogue:
+        layout = (
+            f'text 必须是对话，每行以 {r.speaker}: 或 {r.speaker2}: 开头，两人均须至少一句。'
+            f'角色 A 声音是 {_voice_brief(r.voice)}，角色 B 是 {_voice_brief(r.voice2)}。'
+            f'style 里分别规定两人，并各自锁声线：{_voice_lock_phrase(r.voice)}；{_voice_lock_phrase(r.voice2)}。'
+        )
+    else:
+        layout = (
+            f'text 是单人旁白。当前预置声音是 {_voice_brief(r.voice)}。'
+            f'style 必须先写「{_voice_lock_phrase(r.voice)}」，再写符合主题的情绪、对象和表演方式。'
+        )
+    return (
+        '你在为 Google Gemini TTS 起草朗读稿。TTS 只朗读 text 里的台词；'
+        '语气、口音、节奏、场景必须分开写到 style / pace / accent / scene，不要写进台词。\n'
+        f'台词里必须使用英语方括号表演标签，从这些里选用：{tags}。'
+        '至少使用 2 个不同标签，放在需要改演法的那一句开头，例如「[whispers] 我告诉你一个秘密。」'
+        '不要写中文标签如 [低语]，不要把导演说明念出来。\n'
+        f'{layout}\n'
+        f'pace 必须恰好是下列之一：{paces}。\n'
+        'accent 写成具体口音，中文主题用「标准普通话」。\n'
+        'scene 写谁在什么环境对谁说话，要和主题一致。\n'
+        '约 120–180 字。只返回 JSON 对象，不要标题、不要 Markdown。字段：text, style, pace, accent, scene。\n'
+        f'主题：{r.topic.strip()}'
+    )
+
+
+def parse_draft(raw: str) -> dict:
+    text = (raw or '').strip()
+    if not text:
+        raise UserError('写稿模型没有返回文字，请换一个可用的文本模型。')
+    fence = re.search(r'```(?:json)?\s*([\s\S]*?)```', text)
+    blob = fence.group(1) if fence else text
+    start, end = blob.find('{'), blob.rfind('}')
+    if start == -1 or end <= start:
+        raise UserError('写稿没有返回可解析的 JSON。请再试一次。')
+    try:
+        data = json.loads(blob[start:end + 1])
+    except json.JSONDecodeError as error:
+        raise UserError('写稿 JSON 无法解析，请再试一次。') from error
+    if not isinstance(data, dict):
+        raise UserError('写稿 JSON 格式不正确，请再试一次。')
+    script = str(data.get('text') or '').strip()
+    if not script:
+        raise UserError('写稿没有台词。请再试一次。')
+    pace = str(data.get('pace') or '自然').strip()
+    if pace not in DRAFT_PACES:
+        pace = next((item for item in DRAFT_PACES if item in pace or pace in item), '自然')
+    return {
+        'text': script,
+        'style': str(data.get('style') or '').strip(),
+        'pace': pace,
+        'accent': str(data.get('accent') or '').strip(),
+        'scene': str(data.get('scene') or '').strip(),
+    }
 
 
 @app.post('/api/draft')
@@ -135,12 +221,15 @@ def draft(r: Draft):
     if not r.topic.strip(): raise HTTPException(400, '请输入写稿主题。')
     if not generation_lock.acquire(blocking=False): raise HTTPException(409, '请先等待当前生成任务完成。')
     try:
-        layout = f'每行以 {r.speaker}: 或 {r.speaker2}: 开头，两人均须发言。' if r.dialogue else '单人旁白。'
         provider = 'vertex' if os.getenv('GOOGLE_CLOUD_PROJECT') else 'gemini'
         with genai_client(provider) as client:
-            result = client.models.generate_content(model=r.model, contents=f'写一段约150字的中文朗读稿，只返回台词，不要标题和Markdown。{layout}\n主题：{r.topic}')
-            if not result.text: raise UserError('写稿模型没有返回文字，请换一个可用的文本模型。')
-            return {'text': result.text}
+            from google.genai import types
+            result = client.models.generate_content(
+                model=r.model,
+                contents=draft_prompt(r),
+                config=types.GenerateContentConfig(response_mime_type='application/json'),
+            )
+            return parse_draft(getattr(result, 'text', None) or '')
     except UserError as error: raise HTTPException(400, str(error)) from None
     except Exception as error: raise HTTPException(400, error_payload(error)) from None
     finally: generation_lock.release()

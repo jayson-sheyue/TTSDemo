@@ -23,6 +23,10 @@ def test_home_and_static(client):
     assert 'fillLanguageSelect' in js.text
     assert '当前语言' in js.text
     assert 'AudioConfig.pitch' in js.text
+    assert 'function applyDraft' in js.text
+    assert 'result.style' in js.text
+    assert '英语表演标签' in js.text
+    assert 'voice:val(\'voice\',\'Kore\')' in js.text
 
 
 def test_catalog_and_docs(client):
@@ -130,6 +134,59 @@ def test_synthesize_error_event(client, monkeypatch):
 def test_draft_without_key(client):
     response = client.post('/api/draft', json={'topic': '解释 TTS'})
     assert response.status_code == 400
+
+
+def test_draft_prompt_asks_for_tags_and_direction():
+    from app import Draft, draft_prompt
+    text = draft_prompt(Draft(topic='用生活例子解释 TTS', voice='Kore'))
+    assert '[whispers]' in text and 'style' in text and 'scene' in text
+    assert '成年女性' in text and 'Kore' in text
+    dialogue = draft_prompt(Draft(topic='两人聊播客', dialogue=True, voice='Kore', voice2='Puck'))
+    assert 'Host:' in dialogue and 'Guest:' in dialogue
+
+
+def test_parse_draft_accepts_fenced_json():
+    from app import parse_draft
+    raw = '''```json
+    {"text":"[whispers] 先听我说。\\nTTS 把文字变成声音。[laughs] 就这么简单。","style":"成年女性，保持女声线，亲切清楚。","pace":"自然","accent":"标准普通话","scene":"安静教室里的老师"}
+    ```'''
+    parsed = parse_draft(raw)
+    assert '[whispers]' in parsed['text'] and '[laughs]' in parsed['text']
+    assert '成年女性' in parsed['style']
+    assert parsed['pace'] == '自然'
+    assert parsed['scene'] == '安静教室里的老师'
+
+
+def test_draft_returns_style_and_tags(client, monkeypatch):
+    payload = {
+        'text': '[whispers] 先听我说一件小事。\nTTS 是把已经写好的字变成可以听的声音。\n[laughs] 没那么神秘。',
+        'style': '成年女性老师，保持女声音高和声线。亲切、清楚，像对一位新手解释。',
+        'pace': '自然',
+        'accent': '标准普通话',
+        'scene': '安静教室里的讲述者',
+    }
+
+    class FakeModels:
+        def generate_content(self, **_kwargs):
+            return type('Result', (), {'text': json.dumps(payload, ensure_ascii=False)})()
+
+    class FakeClient:
+        def __init__(self):
+            self.models = FakeModels()
+        def __enter__(self):
+            return self
+        def __exit__(self, *_args):
+            return False
+
+    monkeypatch.setenv('GOOGLE_CLOUD_PROJECT', 'demo-test')
+    monkeypatch.setattr('app.genai_client', lambda _provider: FakeClient())
+    response = client.post('/api/draft', json={'topic': '解释 TTS', 'voice': 'Kore'})
+    assert response.status_code == 200
+    body = response.json()
+    assert '[whispers]' in body['text']
+    assert '成年女性' in body['style']
+    assert body['accent'] == '标准普通话'
+    assert body['scene']
 
 
 def test_rejects_wrong_host_and_content_type(client):

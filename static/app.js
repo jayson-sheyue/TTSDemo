@@ -305,7 +305,7 @@ function workspaceHTML(spec){
   const langs='<datalist id="languages-'+spec.id+'"><option value="cmn-CN"><option value="en-US"><option value="en-GB"><option value="ja-JP"><option value="ko-KR"><option value="fr-FR"><option value="de-DE"><option value="es-ES"></datalist>';
   const mode=ok('dialogue')?`<div class="segmented" role="group"><button class="selected" data-id="single" type="button">◉ 单人朗读</button><button data-id="dialogue" type="button">◉ ◉ 双人对话</button></div>`:'<p class="hint">本页只做单人。双人请到 Gemini-TTS 页。</p>';
   const tags=ok('tags')||ok('ssml')?`<div class="tags" data-id="tags"><span>${ok('tags')?'表演标签':'SSML 片段'}</span></div>`:'';
-  const draft=ok('draft')?`<details><summary>没有台词？让文字模型帮你起草</summary><div class="draft-row"><label>主题<input data-id="topic" placeholder="例如：用生活例子解释什么是 TTS"></label><label>文字模型<input data-id="text-model" value="gemini-2.5-flash"></label></div><button class="secondary" data-id="draft" type="button">生成草稿，供我检查</button></details>`:'';
+  const draft=ok('draft')?`<details><summary>没有台词？让文字模型帮你起草</summary><div class="draft-row"><label>主题<input data-id="topic" placeholder="例如：用生活例子解释什么是 TTS"></label><label>文字模型<input data-id="text-model" value="gemini-2.5-flash"></label></div><button class="secondary" data-id="draft" type="button">生成草稿，供我检查</button><p class="hint">会写入台词（含英语表演标签），并填入语气、语速、口音和场景。先检查再生成语音。</p></details>`:'';
   const style=ok('style')?`<section class="card"><div class="card-heading"><h2><span class="step">02</span> 给声音一点方向</h2><span class="muted">像指导配音演员</span></div><label>语气与表演</label><textarea data-id="style" rows="2" placeholder="温暖、自然，像在向一位朋友讲故事。"></textarea><p data-id="style-warn" class="hint warn" hidden></p><div class="grid2"><label>语速<select data-id="pace">${pace}</select></label><label>口音 / 发音方向<input data-id="accent" placeholder="如：标准普通话、British English"></label></div><details><summary>场景与长文设置</summary><label>场景 / 声音角色<input data-id="scene" placeholder="如：安静书店里的讲述者"></label>${ok('chunk')?`<label class="check"><input data-id="chunk" type="checkbox"> 长文按段生成并拼接</label><label>每段上限（UTF-8 字节）<input data-id="chunk-bytes" type="number" min="300" max="3000" value="1800"></label>`:''}</details></section>`:'';
   const advList=(spec.advantages||[]).map(item=>`<li>${item}</li>`).join('');
   const advBox=advList?`<ul class="advantage-list">${advList}</ul>`:'';
@@ -393,9 +393,32 @@ async function generate(){
   }catch(e){controller.abort(); stopPlayback(); if($('result')) $('result').hidden=true; if($('empty-output')) $('empty-output').hidden=false; if($('status')) $('status').textContent=e.name==='AbortError'?'已停止':'未完成'; fail(e,'生成失败');}
   finally{if(serial===requestSerial) setBusy(false);}
 }
+function applyDraft(result){
+  if($('text')&&result.text) $('text').value=result.text;
+  if($('style')&&result.style) $('style').value=result.style;
+  if($('pace')&&result.pace){
+    const sel=$('pace');
+    if([...sel.options].some(o=>o.value===result.pace)) sel.value=result.pace;
+  }
+  if($('accent')&&result.accent!=null) $('accent').value=result.accent;
+  if($('scene')&&result.scene!=null){
+    $('scene').value=result.scene;
+    const wrap=$('scene').closest('details');
+    if(wrap&&result.scene) wrap.open=true;
+  }
+  count(); checkStyleConflict();
+}
 async function draft(){
-  if(busy||!$('topic')) return; setBusy(true); controller=new AbortController(); report('loading','文字模型正在起草…');
-  try{const result=await(await post('/api/draft',{topic:$('topic').value,model:val('text-model','gemini-2.5-flash'),dialogue:mode==='dialogue',speaker:val('speaker','Host'),speaker2:val('speaker2','Guest')},controller.signal)).json(); $('text').value=result.text; count(); report('ok','草稿已放入编辑区。');}catch(e){fail(e,'写稿失败');}
+  if(busy||!$('topic')) return; setBusy(true); controller=new AbortController(); report('loading','文字模型正在起草台词和表演提示…');
+  try{
+    const result=await(await post('/api/draft',{
+      topic:$('topic').value, model:val('text-model','gemini-2.5-flash'),
+      dialogue:mode==='dialogue', speaker:val('speaker','Host'), speaker2:val('speaker2','Guest'),
+      voice:val('voice','Kore'), voice2:val('voice2','Puck'),
+    },controller.signal)).json();
+    applyDraft(result);
+    report('ok','草稿已放入台词，并填入「给声音一点方向」。请先检查标签和提示词再生成。');
+  }catch(e){fail(e,'写稿失败');}
   finally{setBusy(false);}
 }
 function escapeHtml(value){return value.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}

@@ -117,7 +117,7 @@ Gemini TTS 是 Google 提供的一类**专用语音模型**：输入只能是文
 | 指定语言代码 | Cloud 必须填 locale，如 `cmn-CN` | Cloud Gemini-TTS · Available languages | 连接与音频格式 |
 | 自然语言控风格 | 用文字指定语气、口音、节奏、场景 | 语音生成指南 · Prompting guide | 步骤 02 |
 | 行内音频标签 | `[whispers]` `[laughs]` 等，3.1 更适合 | 语音生成指南 · Audio tags | 表演标签按钮 |
-| 先写稿再朗读 | TTS 模型不会写故事；用普通文字模型起草 | 语音生成指南 · Generate a prompt | 「让文字模型帮你起草」 |
+| 先写稿再朗读 | TTS 模型不会写故事；用普通文字模型起草台词、表演标签和导演提示 | 语音生成指南 · Generate a prompt | 「让文字模型帮你起草」会同时填入步骤 02 |
 | 流式播放 | 音频边生成边到达；Gemini API 仅 3.1 | 语音生成指南 · Streaming | 「边生成边播放」 |
 | 非流式完整返回 | 等全部生成完再播放 | 2.5 在 Gemini API 上的路径 | 关闭流式 |
 | GenerateContent | 旧路径，文档标 Legacy，SDK 样例多 | [GenerateContent 语音指南](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation) | 调用方式下拉框 |
