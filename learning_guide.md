@@ -345,7 +345,7 @@ SSML 本身是给停顿、日期、电话、缩写、发音用的标记语言，
 - 英语通知 + Neural 音质 → Neural2（官方无普通话 Neural2）
 - 英语有声书写死停顿 → Studio（高档字符价，无普通话）
 
-测通后，每一引擎页底部有「接入你们系统」官方链接。克隆音色、Long audio、News/Polyglot、设备音频配置见入门页「未接入」表与 [官方资料](docs/official_sources.md)。
+测通后，每一引擎页底部有「接入你们系统」官方链接。克隆音色、Long audio、双向流式、Studio 实验性双人组见入门页「本产品还有、网页 Demo 故意没接」。News / Polyglot / Casual 在 Neural2 页按语言筛选即可。设备补偿和音量在 WaveNet / Neural2 / Standard / Studio 第 02 步。Gemini Batch 见第 8 节与 `batch_demo.py`。Live 对话是另一个产品。
 
 官方 Gemini API 提供 30 个预置声音。名称是希腊神话/星名，描述是选角提示：
 

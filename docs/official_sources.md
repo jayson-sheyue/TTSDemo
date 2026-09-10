@@ -47,7 +47,7 @@
 - [声音类型总览](https://docs.cloud.google.com/text-to-speech/docs/voice-types)：Chirp / Studio / Neural2 / WaveNet / Standard 的官方定位；Chirp 条目写明不支持 SSML、speakingRate、pitch（与 Chirp 专题页有冲突）。
 - [创建音频文件](https://cloud.google.com/text-to-speech/docs/create-audio)：`text:synthesize` 示例，含 `name` 与 `ssmlGender`。
 - [AudioConfig](https://cloud.google.com/text-to-speech/docs/reference/rest/v1/AudioConfig)：speakingRate、pitch、volumeGainDb、effectsProfileId。
-- [音频设备配置](https://cloud.google.com/text-to-speech/docs/audio-profiles)：effectsProfileId。本 Demo 不发送。
+- [音频设备配置](https://cloud.google.com/text-to-speech/docs/audio-profiles)：effectsProfileId。WaveNet / Neural2 / Standard / Studio 页可下拉试听。
 - [Cloud Python SDK](https://docs.cloud.google.com/python/docs/reference/texttospeech/latest)：类、字段、认证与安装说明。
 - [Cloud text.synthesize REST 参考](https://docs.cloud.google.com/text-to-speech/docs/reference/rest/v1/text/synthesize)：请求/响应及编码封装。它是通用 Cloud TTS schema，某个字段存在不表示 Gemini 模型一定支持。
 - [Application Default Credentials 配置](https://docs.cloud.google.com/docs/authentication/provide-credentials-adc)：本地登录、服务账户和部署身份。

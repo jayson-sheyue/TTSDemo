@@ -23,6 +23,8 @@ def test_home_and_static(client):
     assert 'fillLanguageSelect' in js.text
     assert '当前语言' in js.text
     assert 'AudioConfig.pitch' in js.text
+    assert 'effectsProfileId' in js.text
+    assert 'cellHtml' in js.text
     assert 'function applyDraft' in js.text
     assert 'result.style' in js.text
     assert '英语表演标签' in js.text
@@ -55,6 +57,11 @@ def test_catalog_and_docs(client):
     assert catalog['age_control'][1][0].startswith('有没有年龄')
     assert catalog['fit_guide'][1][1] == 'Gemini-TTS（3.1 或 2.5 Pro）'
     assert any('Instant Custom Voice' in row[0] for row in catalog['api_out_of_demo'])
+    assert catalog['api_out_of_demo'][0] == ['能力', '业务价值', '为什么网页 Demo 不做', '客户接入文档']
+    assert not any('Live' in row[0] for row in catalog['api_out_of_demo'][1:])
+    assert not any('News' in row[0] for row in catalog['api_out_of_demo'][1:])
+    assert not any('volumeGain' in row[0] or 'effectsProfile' in row[0] for row in catalog['api_out_of_demo'][1:])
+    assert any(item[0] == '' for item in catalog['audio_profiles'])
     gemini = next(item for item in catalog['workspaces'] if item['id'] == 'gemini')
     assert gemini['docs'] and all(item['url'].startswith('https://') for item in gemini['docs'])
     assert all(item.get('docs') and item.get('fit') and item.get('surface') for item in catalog['workspaces'])

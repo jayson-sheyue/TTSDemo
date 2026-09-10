@@ -266,6 +266,13 @@ def test_classic_voice_name_and_ssml_preview():
     ))
     assert any('不支持 AudioConfig.pitch' in item for item in chirp_pitch['warnings'])
     assert 'pitch=4' not in chirp_pitch['prompt']
+    profiled = plan(req(
+        provider='classic', model='wavenet', voice='cmn-CN-Wavenet-A',
+        language='cmn-CN', effects_profile='headphone-class-device', volume_gain_db=3, text='你好。',
+    ))
+    assert any('headphone-class-device' in item for item in profiled['warnings'])
+    assert 'effectsProfileId=headphone-class-device' in profiled['prompt']
+    assert 'volumeGainDb=3' in profiled['prompt']
     assert classic_voice_name(req(
         provider='classic', model='neural2', voice='en-US-News-K', language='en-US',
     )) == 'en-US-News-K'

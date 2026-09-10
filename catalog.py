@@ -157,18 +157,43 @@ FIT_GUIDE = [
     ['英语有声书、广播腔、写死句间停顿', 'Studio + SSML break', '用 Gemini 提示词「停 400ms」', 'Studio「写死的句间停顿」'],
 ]
 API_OUT_OF_DEMO = [
-    ['能力', '官方位置', '本 Demo'],
-    ['Chirp 3: Instant Custom Voice / 声音克隆', 'https://docs.cloud.google.com/text-to-speech/docs/chirp3-instant-custom-voice', '不调用。需要录音与 voice cloning key'],
-    ['Custom Voice（AutoML 定制声）', 'https://cloud.google.com/text-to-speech/docs/custom-voice', '不调用。VoiceSelectionParams.customVoice'],
-    ['Long audio（异步写 GCS）', 'https://cloud.google.com/text-to-speech/docs/create-audio-text-long-audio-synthesis', '不做。工作台长文是应用层分段'],
-    ['双向流式 Bidirectional streaming', 'https://cloud.google.com/text-to-speech/docs/create-audio-text-streaming', 'Chirp 页仅单向流式试听'],
-    ['News / Polyglot / Casual / 旧版 Chirp HD', 'https://cloud.google.com/text-to-speech/docs/voices', 'Neural2 页按语言筛选可测。不是新页。'],
-    ['Studio 实验性双人组', '声音类型总览 · Studio two speakers', '不合成。本页 Studio 是单人叙述声'],
-    ['音频设备配置 effectsProfileId', 'https://cloud.google.com/text-to-speech/docs/audio-profiles', '不发送。接入时可按耳机/电话/扬声器选 profile'],
-    ['volumeGainDb', 'AudioConfig', '不暴露。可用 SSML <prosody volume> 在传统页试'],
-    ['voices.list 在线拉全表', 'https://cloud.google.com/text-to-speech/docs/list-voices', '工作台用文档快照，不在线探测。账号可用声音以 voices.list 为准'],
-    ['Gemini Batch API', 'https://ai.google.dev/gemini-api/docs/batch-api', '命令行 batch_demo.py，工作台不用'],
-    ['Live API / 麦克风实时对话', 'https://ai.google.dev/gemini-api/docs/live-api', '不是 TTS。见官方资料页'],
+    ['能力', '业务价值', '为什么网页 Demo 不做', '客户接入文档'],
+    [
+        'Chirp 3 Instant Custom Voice（克隆音色）',
+        '用几秒参考音做出「听起来像某个人」的助手声：品牌代言、对内培训角色、熟人声线',
+        '要上传参考录音并拿到 cloning key。不能用预置 30 个短名冒充。教学不便采集客户声纹。',
+        'Chirp 3 Instant Custom Voice\nhttps://docs.cloud.google.com/text-to-speech/docs/chirp3-instant-custom-voice',
+    ],
+    [
+        'Custom Voice（AutoML 定制声）',
+        '用你们自己的播音员语料训练一把专属声，客服/有声书品牌声线长期复用',
+        '要先在 Cloud 训练模型，请求里填 customVoice 资源名。没有现成模型可当场点。',
+        'Custom Voice\nhttps://cloud.google.com/text-to-speech/docs/custom-voice',
+    ],
+    [
+        'Long audio（异步写 GCS）',
+        '有声书整章、超长通知一次合成，结果进云存储，不必浏览器下载大文件',
+        '要 GCS 桶并轮询长时间操作。本页长文是应用层分段后多次 synthesize，方便当场试听。',
+        'Long audio synthesis\nhttps://cloud.google.com/text-to-speech/docs/create-audio-text-long-audio-synthesis',
+    ],
+    [
+        '双向流式 Bidirectional streaming',
+        '边生成稿边往外推字，先听到开头；适合助手一边想一边说',
+        '浏览器一次提交整段。Chirp 页已做单向流式（整段文字 → 边收边播）。双向要保持发送文本块的长连接。',
+        '流式合成\nhttps://cloud.google.com/text-to-speech/docs/create-audio-text-streaming',
+    ],
+    [
+        'Studio 实验性双人组',
+        '有声书里两个叙述者共用 Studio 音质，比 Gemini 双人更「播音」',
+        '官方仍是 Preview。本页 Studio 只接单人叙述声。要演戏双人请用 Gemini-TTS 页。',
+        '声音类型 · Studio\nhttps://docs.cloud.google.com/text-to-speech/docs/voice-types',
+    ],
+    [
+        'voices.list 在线拉全表',
+        '生产环境按账号和区域探测此刻能用的声音，避免文档快照过期',
+        '工作台用 2026-09-10 文档快照，保证离线对照稳定。上线请以 voices.list 为准。',
+        '列出声音\nhttps://cloud.google.com/text-to-speech/docs/list-voices',
+    ],
 ]
 
 
@@ -224,6 +249,17 @@ CLASSIC_PACE = {
     '轻快，保持吐字清晰': 1.15,
     '逐渐加快，最后放慢': 1.0,
 }
+AUDIO_PROFILES = [
+    ('', '不指定 · 默认扬声器'),
+    ('headphone-class-device', '耳机'),
+    ('handset-class-device', '手机听筒'),
+    ('telephony-class-application', '电话 / IVR'),
+    ('small-bluetooth-speaker-class-device', '小型蓝牙音箱'),
+    ('medium-bluetooth-speaker-class-device', '中型蓝牙音箱'),
+    ('large-home-entertainment-class-device', '客厅音箱'),
+    ('large-automotive-class-device', '车载'),
+    ('wearable-class-device', '可穿戴'),
+]
 SSML_TAGS = {
     'chirp3-hd': [
         ('<break time="400ms"/>', '停顿 0.4s'),
@@ -341,7 +377,7 @@ WORKSPACES = [
         'eyebrow': 'CLOUD TTS · WAVENET', 'title': '日期和验证码，SSML 说了算。',
         'lead': '相对 Gemini：<say-as> 读日期/电话/逐字，<break> 可写 400ms。年龄靠换 A/B/C/D，音高 pitch 不是年龄档。',
         'provider': 'classic', 'model': 'wavenet',
-        'features': ['ssml', 'chunk', 'rate', 'language', 'format', 'pitch'],
+        'features': ['ssml', 'chunk', 'rate', 'language', 'format', 'pitch', 'audio_profile'],
         'advantages': [
             '官方 SSML：日期、电话、逐字、IPA、强调。Gemini-TTS 不走 SSML。',
             'speaking_rate / pitch 是请求数字，不是「读慢一点」「听起来年轻」这种提示词。',
@@ -354,7 +390,7 @@ WORKSPACES = [
         ],
         'coverage': 'WaveNet 官方表当前快照全部可测，按语言筛选。普通话仍是 A–D 四人。',
         'surface': [
-            '单人 text:synthesize', 'SSML 全指南标签（视声音）', 'speakingRate', 'pitch ±20 半音', 'WAV/MP3/OGG',
+            '单人 text:synthesize', 'SSML 全指南标签（视声音）', 'speakingRate', 'pitch ±20 半音', 'effectsProfileId', 'volumeGainDb', 'WAV/MP3/OGG',
             '不可流式', 'ssmlGender 可选（本 Demo 用 name）',
         ],
         'docs': CLASSIC_DOCS,
@@ -364,7 +400,7 @@ WORKSPACES = [
         'eyebrow': 'CLOUD TTS · NEURAL2', 'title': '英语通知：电话和日期可读死。',
         'lead': '相对 Gemini：英语 Neural2 + SSML say-as。官方普通话表没有 Neural2。年龄同样只能换说话人。',
         'provider': 'classic', 'model': 'neural2',
-        'features': ['ssml', 'chunk', 'rate', 'language', 'format', 'pitch'],
+        'features': ['ssml', 'chunk', 'rate', 'language', 'format', 'pitch', 'audio_profile'],
         'advantages': [
             '英语日期、电话、拼写可用 <say-as> 写成契约，不用提示词碰运气。',
             'en-US Neural2 官方全套可下拉；其他 locale 换语言即可。News / Polyglot / Casual / 旧版 Chirp HD 也放在本页。',
@@ -376,7 +412,7 @@ WORKSPACES = [
         ],
         'coverage': 'Neural2 全表按语言筛选。官方无 cmn-CN Neural2。同页还可测 News、Polyglot、Casual、旧版 Chirp HD。',
         'surface': [
-            '单人 text:synthesize', 'SSML', 'speakingRate / pitch', 'WAV/MP3/OGG', '不可流式',
+            '单人 text:synthesize', 'SSML', 'speakingRate / pitch', 'effectsProfileId / volumeGainDb', 'WAV/MP3/OGG', '不可流式',
         ],
         'docs': CLASSIC_DOCS,
     },
@@ -385,7 +421,7 @@ WORKSPACES = [
         'eyebrow': 'CLOUD TTS · STANDARD', 'title': '基础声 + SSML，适合对照成本。',
         'lead': '相对 Gemini：同样能 SSML 逐字/日期；官方价目里 Standard 是字符计费且有免费额度。换声控年龄，不能演。',
         'provider': 'classic', 'model': 'standard',
-        'features': ['ssml', 'chunk', 'rate', 'language', 'format', 'pitch'],
+        'features': ['ssml', 'chunk', 'rate', 'language', 'format', 'pitch', 'audio_profile'],
         'advantages': [
             'IVR 验证码、日期可用 SSML 读死。',
             '普通话官方 Standard-A–D 都在；其他语言换下拉。字符计费 + 官方免费额度。',
@@ -397,7 +433,7 @@ WORKSPACES = [
         ],
         'coverage': 'Standard 官方表当前快照全部可测，按语言筛选。',
         'surface': [
-            '单人 text:synthesize', 'SSML', 'speakingRate / pitch', 'WAV/MP3/OGG', '不可流式', '价目有免费额度',
+            '单人 text:synthesize', 'SSML', 'speakingRate / pitch', 'effectsProfileId / volumeGainDb', 'WAV/MP3/OGG', '不可流式', '价目有免费额度',
         ],
         'docs': CLASSIC_DOCS,
     },
@@ -406,7 +442,7 @@ WORKSPACES = [
         'eyebrow': 'CLOUD TTS · STUDIO', 'title': '有声书节奏，用 break 写死。',
         'lead': '相对 Gemini：句间停顿可写成 400ms/800ms。Studio 是高档字符价。无普通话 Studio。',
         'provider': 'classic', 'model': 'studio',
-        'features': ['ssml', 'chunk', 'rate', 'language', 'format', 'pitch'],
+        'features': ['ssml', 'chunk', 'rate', 'language', 'format', 'pitch', 'audio_profile'],
         'advantages': [
             'SSML break / prosody 把章节停顿写成标记，而不是「稍微停一下」。',
             '声音全表中的 Studio 单人叙述声全部可下拉，按语言筛选。无普通话 Studio。',
@@ -418,7 +454,7 @@ WORKSPACES = [
         ],
         'coverage': 'Studio 单人声全表可测。无 cmn-CN Studio。实验性 two-speaker Studio 未接入。',
         'surface': [
-            '单人 text:synthesize', 'SSML（部分标签官方排除）', 'speakingRate / pitch', 'WAV/MP3/OGG', '不可流式',
+            '单人 text:synthesize', 'SSML（部分标签官方排除）', 'speakingRate / pitch', 'effectsProfileId / volumeGainDb', 'WAV/MP3/OGG', '不可流式',
         ],
         'docs': CLASSIC_DOCS + [
             _doc('声音类型 · Studio', 'https://docs.cloud.google.com/text-to-speech/docs/voice-types', '叙述 / 实验性双人组说明。'),

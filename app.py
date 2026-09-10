@@ -15,7 +15,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
-from catalog import AGE_CONTROL, API_OUT_OF_DEMO, CHIRP_LOCALES, CLASSIC_PAGE_FAMILIES, CLASSIC_VOICES, COMPARE_CLASSIC, COMPARE_MODELS, COMPARE_PROVIDERS, EXAMPLES, FIT_GUIDE, MODEL_CARDS, MODELS, SSML_TAGS, TAGS, VOICE_PROFILES, VOICE_RULES, VOICES, WHY_CLASSIC, WORKSPACES
+from catalog import AGE_CONTROL, API_OUT_OF_DEMO, AUDIO_PROFILES, CHIRP_LOCALES, CLASSIC_PAGE_FAMILIES, CLASSIC_VOICES, COMPARE_CLASSIC, COMPARE_MODELS, COMPARE_PROVIDERS, EXAMPLES, FIT_GUIDE, MODEL_CARDS, MODELS, SSML_TAGS, TAGS, VOICE_PROFILES, VOICE_RULES, VOICES, WHY_CLASSIC, WORKSPACES
 from samples import load_samples
 from tts import Request, UserError, adc_available, audio_chunks, error_payload, genai_client, require_provider_auth, plan
 
@@ -59,7 +59,7 @@ def catalog():
             'examples': EXAMPLES, 'samples': SAMPLES, 'tags': TAGS, 'voice_rules': VOICE_RULES,
             'compare_providers': COMPARE_PROVIDERS, 'compare_models': COMPARE_MODELS, 'compare_classic': COMPARE_CLASSIC,
             'why_classic': WHY_CLASSIC, 'age_control': AGE_CONTROL, 'fit_guide': FIT_GUIDE,
-            'api_out_of_demo': API_OUT_OF_DEMO,
+            'api_out_of_demo': API_OUT_OF_DEMO, 'audio_profiles': AUDIO_PROFILES,
             'classic_voices': CLASSIC_VOICES, 'chirp_locales': CHIRP_LOCALES,
             'classic_page_families': CLASSIC_PAGE_FAMILIES,
             'workspaces': WORKSPACES, 'ssml_tags': SSML_TAGS,

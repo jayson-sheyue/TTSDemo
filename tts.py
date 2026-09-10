@@ -53,6 +53,8 @@ class Request(BaseModel):
     structured: bool = False
     ssml: bool = False
     pitch: float = Field(default=0.0, ge=-20.0, le=20.0)
+    effects_profile: str = Field(default='', max_length=80)
+    volume_gain_db: float = Field(default=0.0, ge=-10.0, le=16.0)
 
 
 def voice_lock(name: str, who: str = 'The speaker') -> str:
@@ -145,6 +147,8 @@ def prompt(r: Request, text: str) -> str:
             f'family={r.model} voice={name} language={r.language} input={kind}\n'
             f'Gemini 提示词不会发送。节奏由 speaking_rate / SSML 控制'
             + (f'；pitch={r.pitch}' if r.model != 'chirp3-hd' and r.pitch else '')
+            + (f'；effectsProfileId={r.effects_profile}' if r.model != 'chirp3-hd' and r.effects_profile else '')
+            + (f'；volumeGainDb={r.volume_gain_db}' if r.model != 'chirp3-hd' and r.volume_gain_db else '')
             + '。\n\nINPUT:\n'
             + (ensure_ssml(text) if classic_uses_ssml(r, text) else text)
         )
@@ -237,6 +241,14 @@ def plan(r: Request) -> dict:
             warnings.append('声音类型总览写明 Chirp 3: HD 不支持 AudioConfig.pitch；本 Demo 不会发送音高。换年轻/成熟请改选 Leda / Gacrux。')
         elif r.pitch:
             warnings.append(f'将发送 AudioConfig.pitch={r.pitch} 半音。这是音高，不是官方年龄档。')
+        if r.effects_profile and r.model == 'chirp3-hd':
+            warnings.append('Chirp 3 HD 本 Demo 不发送 effectsProfileId。')
+        elif r.effects_profile:
+            warnings.append(f'将发送 AudioConfig.effects_profile_id={r.effects_profile}，按耳机/听筒/电话等设备补偿。')
+        if r.volume_gain_db and r.model == 'chirp3-hd':
+            warnings.append('Chirp 3 HD 本 Demo 不发送 volumeGainDb。')
+        elif r.volume_gain_db:
+            warnings.append(f'将发送 AudioConfig.volume_gain_db={r.volume_gain_db}。过大容易削波。')
     if r.chunk: warnings.append('长文分段是应用层逐段调用，会重复发送风格提示；接缝和声线可能变化，不等同于 Batch API。')
     if r.stream: warnings.append('收到音频后立即播放；停止会中断接收，但已提交的云端请求仍可能计费。')
     if '3.1' in r.model and r.provider not in {'gemini', 'classic'}:
@@ -388,6 +400,10 @@ def generate_classic(r: Request, text: str) -> Iterator[bytes]:
             audio = dict(audio_encoding=encoding, sample_rate_hertz=RATE, speaking_rate=rate)
             if r.model != 'chirp3-hd' and r.pitch:
                 audio['pitch'] = r.pitch
+            if r.model != 'chirp3-hd' and r.effects_profile:
+                audio['effects_profile_id'] = [r.effects_profile]
+            if r.model != 'chirp3-hd' and r.volume_gain_db:
+                audio['volume_gain_db'] = r.volume_gain_db
             response = client.synthesize_speech(
                 input=t.SynthesisInput(**payload),
                 voice=voice,

@@ -39,7 +39,7 @@ def test_official_index_covers_主干入口():
 
 def test_learning_guide_covers_can_and_cannot():
     text = (Path(__file__).resolve().parents[1] / 'learning_guide.md').read_text(encoding='utf-8')
-    for needle in ('能干什么', '不能干什么', 'Live API', '声音克隆', 'TRANSCRIPT', 'Batch API', '30 个', '少年', '女声', 'Leda', 'Gacrux', 'AudioConfig.pitch', '换 A/B/C/D'):
+    for needle in ('能干什么', '不能干什么', 'Live API', '声音克隆', 'TRANSCRIPT', 'Batch API', '30 个', '少年', '女声', 'Leda', 'Gacrux', 'AudioConfig.pitch', '换 A/B/C/D', '网页 Demo 故意没接'):
         assert needle in text
     readme = (Path(__file__).resolve().parents[1] / 'README.md').read_text(encoding='utf-8')
     assert '少年 / 壮年 / 老年' in readme
