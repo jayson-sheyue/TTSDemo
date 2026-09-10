@@ -1,0 +1,19 @@
+{
+  "id": "standard-pitch",
+  "title": "功能 · 音高 +4",
+  "group": "功能怎么测",
+  "engine": "standard",
+  "note": "音高不是童声档。换说话人请选 A 或 D。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "standard",
+    "voice": "cmn-CN-Standard-A",
+    "language": "cmn-CN",
+    "ssml": false,
+    "pitch": 4,
+    "text": "这还是 Standard A。更尖只来自 pitch，不是少年档。",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

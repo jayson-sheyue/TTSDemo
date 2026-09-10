@@ -1,0 +1,18 @@
+{
+  "id": "standard-voice-d",
+  "title": "选声 · 女声 D",
+  "group": "年龄怎么控",
+  "engine": "standard",
+  "note": "普通话 Standard 官方 A–D 全部在下拉框。D 是另一把女声，不是老年档。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "standard",
+    "voice": "cmn-CN-Standard-D",
+    "language": "cmn-CN",
+    "ssml": false,
+    "text": "你好，我是 Standard 的 D。和 A 一样是女声，但是另一个说话人。",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

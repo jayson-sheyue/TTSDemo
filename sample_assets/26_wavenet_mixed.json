@@ -1,0 +1,18 @@
+{
+  "id": "wavenet-mixed",
+  "title": "高阶 · 中日英混语",
+  "group": "高阶 · 混语",
+  "engine": "wavenet",
+  "note": "下拉框的 cmn-CN-Wavenet-A 仍管未标记的中文。<voice> 要包住外语片段，不是加在全文后。换 <voice> 等于换人（日语是 ja-JP-Wavenet-A，不是同一把 A）。<lang> 才是同声换语，但官方不支持带汉字的日语。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "wavenet",
+    "voice": "cmn-CN-Wavenet-A",
+    "language": "cmn-CN",
+    "ssml": true,
+    "text": "<speak>大家好，欢迎来到实验室。<voice name=\"en-US-Wavenet-D\">Please keep your ticket ready. Meet at Tokyo Station.</voice>我们三点集合。<voice name=\"ja-JP-Wavenet-A\">東京駅の中央改札で待っています。</voice></speak>",
+    "style": "不发送。日文汉字不要靠 <lang>，要换日语声音。",
+    "pace": "自然"
+  }
+}

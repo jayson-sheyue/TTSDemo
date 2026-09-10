@@ -1,0 +1,18 @@
+{
+  "id": "studio-mixed",
+  "title": "高阶 · 中日英混语",
+  "group": "高阶 · 混语",
+  "engine": "studio",
+  "note": "本 Demo 的 Studio 只有英语。中文、日文请用 SSML <voice> 换到 Standard。Studio 页没有 Gemini 提示词，也没有自动识别混语。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "studio",
+    "voice": "en-US-Studio-O",
+    "language": "en-US",
+    "ssml": true,
+    "text": "<speak>Welcome to TTS Lab.<break time=\"300ms\"/><voice name=\"cmn-CN-Standard-A\">欢迎来到声音实验室。我们三点集合。</voice><break time=\"300ms\"/><voice name=\"ja-JP-Standard-A\">東京駅の中央改札で待っています。</voice></speak>",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

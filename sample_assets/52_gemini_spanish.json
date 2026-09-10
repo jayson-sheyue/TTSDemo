@@ -1,0 +1,19 @@
+{
+  "id": "gemini-spanish",
+  "title": "西班牙语 · 欢迎",
+  "group": "多语言",
+  "engine": "gemini",
+  "note": "语言码留空。要西班牙西班牙语腔，写进语气，不要只写「西班牙语」。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Vindemiatrix",
+    "voice2": "Puck",
+    "language": "",
+    "text": "Bienvenidos al laboratorio de voz. La visita comienza a las tres. Por favor, conserven sus entradas.",
+    "style": "Adult female narrator. Castilian Spanish, unhurried and warm. Do not use Latin American slang.",
+    "pace": "自然",
+    "accent": "Castilian Spanish",
+    "scene": "Museum welcome."
+  }
+}

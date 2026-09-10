@@ -1,0 +1,19 @@
+{
+  "id": "gemini-korean",
+  "title": "韩语 · 안내",
+  "group": "多语言",
+  "engine": "gemini",
+  "note": "Gemini 页语言码可留空，让模型识别韩语。传统页韩语请换 locale 再选该语言的声音。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Aoede",
+    "voice2": "Puck",
+    "language": "",
+    "text": "안녕하세요. 음성 실험실에 오신 것을 환영합니다. 오늘 일정은 오후 세 시에 시작합니다.",
+    "style": "Friendly, clear Korean narration by an adult woman. Do not switch into Chinese.",
+    "pace": "自然",
+    "accent": "Seoul Korean",
+    "scene": "A short visitor guide."
+  }
+}

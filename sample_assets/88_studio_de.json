@@ -1,0 +1,18 @@
+{
+  "id": "studio-german",
+  "title": "德语 · Studio C",
+  "group": "多语言",
+  "engine": "studio",
+  "note": "de-DE Studio。不要在本页贴中文主声。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "studio",
+    "voice": "de-DE-Studio-C",
+    "language": "de-DE",
+    "ssml": false,
+    "text": "Der Regen hatte aufgehört. Sie blieb unter der Uhr stehen und las den Brief noch einmal.",
+    "style": "不发送。",
+    "pace": "缓慢，留出思考的停顿"
+  }
+}

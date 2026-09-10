@@ -1,0 +1,18 @@
+{
+  "id": "chirp-gacrux",
+  "title": "选声 · 成熟感 Gacrux",
+  "group": "年龄怎么控",
+  "engine": "chirp3-hd",
+  "note": "Gacrux 的官方形容词是 Mature。和 Leda 比的是两把声，不是年龄旋钮。写「请用老人腔」也不会发送。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "chirp3-hd",
+    "voice": "Gacrux",
+    "language": "cmn-CN",
+    "ssml": false,
+    "text": "你好，这是 Chirp 的 Gacrux。传统路径没有年龄档。要换听感，请换声音名，不要写导演阐述。",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

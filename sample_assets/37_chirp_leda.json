@@ -1,0 +1,18 @@
+{
+  "id": "chirp-leda",
+  "title": "选声 · 年轻感 Leda",
+  "group": "年龄怎么控",
+  "engine": "chirp3-hd",
+  "note": "Chirp 不能靠提示词变年轻。Leda 在 Gemini 声音表的形容词是 Youthful，这里只是换了一个说话人。对照下一条 Gacrux。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "chirp3-hd",
+    "voice": "Leda",
+    "language": "cmn-CN",
+    "ssml": false,
+    "text": "你好，这是 Chirp 的 Leda。我不会按提示词去演少年。你听到的年轻感，来自换了一个说话人。",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "wavenet-english",
+  "title": "英语 · WaveNet F",
+  "group": "多语言",
+  "engine": "wavenet",
+  "note": "英语 WaveNet 是按语言训练的声，不是 Kore 短名。日期电话请用本页 SSML 样例。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "wavenet",
+    "voice": "en-US-Wavenet-F",
+    "language": "en-US",
+    "ssml": false,
+    "text": "Your appointment is tomorrow morning. Please arrive fifteen minutes early and bring a photo ID.",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

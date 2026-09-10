@@ -1,0 +1,18 @@
+{
+  "id": "standard-mixed",
+  "title": "高阶 · 中日英混语",
+  "group": "高阶 · 混语",
+  "engine": "standard",
+  "note": "Standard 和 WaveNet 一样走 SSML <voice> 换语言，不是提示词。主声音保持普通话 Standard，英语、日语切到对应 Standard 名。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "standard",
+    "voice": "cmn-CN-Standard-A",
+    "language": "cmn-CN",
+    "ssml": true,
+    "text": "<speak>大家好，欢迎来到实验室。<voice name=\"en-US-Standard-C\">Please keep your ticket ready. Meet at Tokyo Station.</voice>我们三点集合。<voice name=\"ja-JP-Standard-A\">東京駅の中央改札で待っています。</voice></speak>",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

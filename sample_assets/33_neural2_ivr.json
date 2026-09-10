@@ -1,0 +1,18 @@
+{
+  "id": "neural2-ivr",
+  "title": "独有 · 英语日期与电话",
+  "group": "选旧不选新",
+  "engine": "neural2",
+  "note": "英语 Neural2 把日期和电话写成 say-as。Gemini 页只能把同样要求写进提示词。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "neural2",
+    "voice": "en-US-Neural2-C",
+    "language": "en-US",
+    "ssml": true,
+    "text": "<speak>Your confirmation is <say-as interpret-as=\"characters\">A3K9</say-as>. The meeting is on <say-as interpret-as=\"date\" format=\"ymd\">2026-09-10</say-as>. Call back <say-as interpret-as=\"telephone\">+1-202-555-0100</say-as>.</speak>",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

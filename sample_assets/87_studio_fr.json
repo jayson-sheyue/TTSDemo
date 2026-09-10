@@ -1,0 +1,18 @@
+{
+  "id": "studio-french",
+  "title": "法语 · Studio A",
+  "group": "多语言",
+  "engine": "studio",
+  "note": "声音全表中的 fr-FR Studio。Gemini 法语靠提示词；这里靠选对声音名。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "studio",
+    "voice": "fr-FR-Studio-A",
+    "language": "fr-FR",
+    "ssml": false,
+    "text": "La pluie avait cessé. Elle s’arrêta sous l’horloge et relut la lettre une dernière fois.",
+    "style": "不发送。",
+    "pace": "缓慢，留出思考的停顿"
+  }
+}

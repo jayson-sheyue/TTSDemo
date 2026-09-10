@@ -1,0 +1,18 @@
+{
+  "id": "gemini-health",
+  "title": "行业 · 就诊提醒",
+  "group": "业务选型",
+  "engine": "gemini",
+  "note": "安抚、慢、清楚。号码和日期若必须读死，请改 WaveNet SSML，不要留在 Gemini 页。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Achernar",
+    "voice2": "Puck",
+    "text": "您好。明天上午九点，请到门诊三楼内科复诊。请提前十五分钟取号，并带上最近的检查单。如果不能前来，请在今天晚上八点前取消预约。",
+    "style": "成年女性护士，温和、口齿清楚、不催促。不要撒娇，不要播音腔。",
+    "pace": "缓慢，留出思考的停顿",
+    "accent": "标准普通话",
+    "scene": "医院语音提醒，对方可能有些紧张。"
+  }
+}

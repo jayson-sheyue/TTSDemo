@@ -1,0 +1,18 @@
+{
+  "id": "welcome",
+  "title": "入门 · 第一段中文",
+  "group": "入门对照",
+  "note": "先听这一条。下一步只换声音，或只改语气，不要同时改，才能听清差别。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore",
+    "voice2": "Puck",
+    "text": "你好，欢迎来到声音实验室。把文字交给 Gemini，让你的想法被听见。",
+    "style": "温暖、自然，像在向一位新朋友介绍自己。",
+    "pace": "自然",
+    "accent": "标准普通话",
+    "scene": "安静的演示现场，面对一位第一次来的听众。"
+  },
+  "engine": "gemini"
+}

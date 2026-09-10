@@ -1,0 +1,18 @@
+{
+  "id": "chirp-korean",
+  "title": "韩语 · 안내",
+  "group": "多语言",
+  "engine": "chirp3-hd",
+  "note": "locale 选 ko-KR。Chirp 表覆盖该语言时即可测。不要留在 cmn-CN 上硬读韩文。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "chirp3-hd",
+    "voice": "Aoede",
+    "language": "ko-KR",
+    "ssml": false,
+    "text": "안녕하세요. 다음 안내는 오후 세 시에 시작합니다. 중앙 개찰구에서 기다려 주세요.",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

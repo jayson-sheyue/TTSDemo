@@ -1,0 +1,18 @@
+{
+  "id": "chirp-japanese",
+  "title": "日语 · 案内",
+  "group": "多语言",
+  "engine": "chirp3-hd",
+  "note": "locale 选 ja-JP。同一把 Kore 短名。混在中文段里请用 SSML <voice>，见「中日英混语」。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "chirp3-hd",
+    "voice": "Kore",
+    "language": "ja-JP",
+    "ssml": false,
+    "text": "こんにちは。次の案内は十五時に始まります。東京駅の中央改札でお待ちください。",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

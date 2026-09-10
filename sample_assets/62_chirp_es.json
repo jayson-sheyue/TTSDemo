@@ -1,0 +1,18 @@
+{
+  "id": "chirp-spanish",
+  "title": "西班牙语 · aviso",
+  "group": "多语言",
+  "engine": "chirp3-hd",
+  "note": "locale 选 es-ES。适合助手/通知，不适合靠提示词演口音。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "chirp3-hd",
+    "voice": "Kore",
+    "language": "es-ES",
+    "ssml": false,
+    "text": "Su autobús sale a las diecisiete veinte. Espere en la puerta B. ¿Quiere que reserve un asiento?",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

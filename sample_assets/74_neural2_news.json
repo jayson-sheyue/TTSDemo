@@ -1,0 +1,18 @@
+{
+  "id": "neural2-news",
+  "title": "选声 · News K",
+  "group": "本页声库",
+  "engine": "neural2",
+  "note": "News 是声音全表里的另一类英语声，放在 Neural2 页按语言筛选可测。不是 Gemini 播报演戏。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "neural2",
+    "voice": "en-US-News-K",
+    "language": "en-US",
+    "ssml": false,
+    "text": "Here is the noon update. Transit delays continue on the north line. Details follow this message.",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

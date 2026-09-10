@@ -1,0 +1,18 @@
+{
+  "id": "neural2-voicemail",
+  "title": "行业 · 英语留言",
+  "group": "业务选型",
+  "engine": "neural2",
+  "note": "客服留言：Neural 音质 + 可加 SSML 电话。不要拿去演播客笑声。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "neural2",
+    "voice": "en-US-Neural2-F",
+    "language": "en-US",
+    "ssml": true,
+    "text": "<speak>You have reached billing support. Please leave your account number after the tone.<break time=\"400ms\"/>For a live agent, call <say-as interpret-as=\"telephone\">650-555-0199</say-as>.</speak>",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

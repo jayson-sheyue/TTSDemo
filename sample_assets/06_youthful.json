@@ -1,0 +1,18 @@
+{
+  "id": "youthful",
+  "title": "声线 · 年轻感",
+  "group": "声线怎么写",
+  "note": "官方没有少年档。Leda 的形容词是 Youthful。年龄写进语气，并写明仍是成年声线，避免被演成儿童配音。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Leda",
+    "voice2": "Puck",
+    "text": "我刚刚学会用这个声音实验室，有点紧张，但还是想试着讲完。其实也没那么难，你听我慢慢说就好。",
+    "style": "听起来像二十出头的年轻人，气息轻、语速偏快，仍然是成年女声，不要做成儿童配音。",
+    "pace": "轻快，保持吐字清晰",
+    "accent": "标准普通话",
+    "scene": "第一次站到麦克风前，有一点害羞。"
+  },
+  "engine": "gemini"
+}

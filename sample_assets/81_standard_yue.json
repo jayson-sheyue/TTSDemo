@@ -1,0 +1,18 @@
+{
+  "id": "standard-cantonese",
+  "title": "粤语 · Standard A",
+  "group": "多语言",
+  "engine": "standard",
+  "note": "yue-HK 是粤语 locale，不是 cmn-CN。Gemini 混语留空语言码；这里必须选对声音名。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "standard",
+    "voice": "yue-HK-Standard-A",
+    "language": "yue-HK",
+    "ssml": false,
+    "text": "你好，预约已经确认。请明日上午九时到达，并带备身份证明。",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

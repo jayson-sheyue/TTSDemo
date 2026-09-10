@@ -1,0 +1,20 @@
+{
+  "id": "neural2-longform",
+  "title": "长文 · 分段拼接",
+  "group": "功能怎么测",
+  "engine": "neural2",
+  "note": "英语长通知。官方无普通话 Neural2，不要在本页贴大段中文当主声。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "neural2",
+    "voice": "en-US-Neural2-C",
+    "language": "en-US",
+    "ssml": false,
+    "chunk": true,
+    "chunk_bytes": 400,
+    "text": "Thank you for listening to this service notice. Please listen to the end. First, after you submit an order, a confirmation message is sent within fifteen minutes. If you do not receive it, check filtered messages, then open the inbox in the app. Second, delivery runs from nine in the morning to nine in the evening. Remote areas may take one extra business day. Third, address changes are only possible before the parcel leaves the warehouse. After that, extra fees may apply. Fourth, cash on delivery is limited to supported cities. Drivers cannot issue VAT invoices. Fifth, returns require unused items and complete accessories. Fresh food is not eligible for no-reason returns. Please keep this call reference for later support. Thank you.",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

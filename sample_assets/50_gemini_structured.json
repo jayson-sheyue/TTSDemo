@@ -1,0 +1,22 @@
+{
+  "id": "gemini-structured",
+  "title": "功能 · Cloud 结构化双人",
+  "group": "功能怎么测",
+  "engine": "gemini",
+  "note": "只在服务入口选 Cloud TTS · Gemini 模型、双人、非流式时生效。Vertex / Gemini API 没有 multi_speaker_markup 字段，但仍能自由文本双人。",
+  "config": {
+    "provider": "cloud",
+    "mode": "dialogue",
+    "structured": true,
+    "stream": false,
+    "model": "gemini-3.1-flash-tts-preview",
+    "language": "cmn-CN",
+    "voice": "Kore",
+    "voice2": "Puck",
+    "speaker": "Host",
+    "speaker2": "Guest",
+    "text": "Host: 今天的预约改到下午三点。\nGuest: 收到。地址还是东站吗？\nHost: 对，东站南出站口。\nGuest: 好，我三点前到。",
+    "style": "Host 成年女性客服，清楚；Guest 成年男性顾客，简短。不要把角色名读出来。",
+    "pace": "自然"
+  }
+}

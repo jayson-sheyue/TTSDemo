@@ -1,0 +1,21 @@
+{
+  "id": "wavenet-ssml",
+  "title": "传统 · WaveNet + SSML",
+  "group": "传统 Cloud TTS",
+  "note": "WaveNet 用 SSML 控停顿和读法，不是 [whispers] 那种 Gemini 标签。必须非流式。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "wavenet",
+    "voice": "cmn-CN-Wavenet-A",
+    "voice2": "Puck",
+    "language": "cmn-CN",
+    "ssml": true,
+    "text": "<speak>请注意。<break time=\"400ms\"/>会议改到<say-as interpret-as=\"date\" format=\"ymd\">2026-09-10</say-as>。不要把 SSML 标签读出来。</speak>",
+    "style": "WaveNet 忽略 Gemini 提示词。停顿写在 SSML 的 break 里。",
+    "pace": "自然",
+    "accent": "",
+    "scene": ""
+  },
+  "engine": "wavenet"
+}

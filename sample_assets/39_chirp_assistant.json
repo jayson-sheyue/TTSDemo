@@ -1,0 +1,18 @@
+{
+  "id": "chirp-assistant",
+  "title": "行业 · 对话助手",
+  "group": "业务选型",
+  "engine": "chirp3-hd",
+  "note": "官方把 Chirp 3 HD 定位为 Conversational Agents。适合助手播报；要演戏去 Gemini，要验证码去 WaveNet。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "chirp3-hd",
+    "voice": "Kore",
+    "language": "cmn-CN",
+    "ssml": false,
+    "text": "已经为你查到三班车。最近一班是下午五点二十，从东站出发。需要我帮你预约吗？",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "wavenet-pitch-down",
+  "title": "音高 · -4 半音（不是老年）",
+  "group": "年龄怎么控",
+  "engine": "wavenet",
+  "note": "同一把 A，只降音高。官方没有老年档。对照「+4 半音」和「女声 D」。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "wavenet",
+    "voice": "cmn-CN-Wavenet-A",
+    "language": "cmn-CN",
+    "ssml": false,
+    "pitch": -4,
+    "text": "这还是 WaveNet A。你听到更沉，是 pitch 减四半音，不是选了老年声。",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "studio-broadcast",
+  "title": "行业 · 广播叙述",
+  "group": "业务选型",
+  "engine": "studio",
+  "note": "Studio 官方定位 Media: Narration。无普通话。定价是高档字符价。实验性双人 Studio 未接入。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "studio",
+    "voice": "en-US-Studio-Q",
+    "language": "en-US",
+    "ssml": true,
+    "text": "<speak>Tonight's reading is short.<break time=\"600ms\"/>The rain had stopped, and the shop was still open.</speak>",
+    "style": "不发送。",
+    "pace": "缓慢，留出思考的停顿"
+  }
+}

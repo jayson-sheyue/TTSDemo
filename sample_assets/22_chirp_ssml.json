@@ -1,0 +1,19 @@
+{
+  "id": "chirp-ssml",
+  "title": "Chirp · SSML 停顿",
+  "group": "本页样例",
+  "engine": "chirp3-hd",
+  "note": "Chirp 的 SSML 是子集，且不能和流式一起开。关闭流式后再生成。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "chirp3-hd",
+    "voice": "Kore",
+    "language": "cmn-CN",
+    "ssml": true,
+    "stream": false,
+    "text": "<speak>请注意。<break time=\"400ms\"/>这是 Chirp 3 HD 的 SSML，不是 Gemini 的 [whispers] 标签。</speak>",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

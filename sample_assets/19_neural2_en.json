@@ -1,0 +1,21 @@
+{
+  "id": "neural2-en",
+  "title": "传统 · Neural2 英语",
+  "group": "传统 Cloud TTS",
+  "note": "Neural2 是传统 Cloud 声。本 Demo 收录了英语 Neural2 / Studio；普通话请用 WaveNet 或 Chirp 3 HD。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "neural2",
+    "voice": "en-US-Neural2-C",
+    "voice2": "Puck",
+    "language": "en-US",
+    "ssml": true,
+    "text": "<speak>This is Neural2, not Gemini TTS. I can pause <break time=\"300ms\"/> and continue without a natural-language acting prompt.</speak>",
+    "style": "Gemini style notes are not sent. Control speech with SSML.",
+    "pace": "自然",
+    "accent": "",
+    "scene": ""
+  },
+  "engine": "neural2"
+}

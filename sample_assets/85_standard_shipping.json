@@ -1,0 +1,18 @@
+{
+  "id": "standard-shipping",
+  "title": "行业 · 物流通知",
+  "group": "业务选型",
+  "engine": "standard",
+  "note": "低成本通知。单号逐字用 SSML。品牌口播请回 Gemini 页。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "standard",
+    "voice": "cmn-CN-Standard-B",
+    "language": "cmn-CN",
+    "ssml": true,
+    "text": "<speak>运单 <say-as interpret-as=\"characters\">SF1024</say-as> 已发出。<break time=\"350ms\"/>预计明日送达。</speak>",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

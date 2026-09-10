@@ -1,0 +1,18 @@
+{
+  "id": "standard-cmn",
+  "title": "Standard · 普通话通知",
+  "group": "本页样例",
+  "engine": "standard",
+  "note": "Standard 只合成文字或 SSML。下面的「风格」不会发给模型，只是说明。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "standard",
+    "voice": "cmn-CN-Standard-A",
+    "language": "cmn-CN",
+    "ssml": true,
+    "text": "<speak>会议改到周五上午九点。<break time=\"350ms\"/>请提前五分钟入场。</speak>",
+    "style": "不发送。Standard 用 SSML 控停顿。",
+    "pace": "自然"
+  }
+}

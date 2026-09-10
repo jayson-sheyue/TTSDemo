@@ -1,0 +1,18 @@
+{
+  "id": "gemini-industry-ivr-vs-acting",
+  "title": "行业 · 品牌旁白",
+  "group": "业务选型",
+  "engine": "gemini",
+  "note": "品牌片、产品介绍要演戏。验证码去 WaveNet。先听这条再决定要不要 Gemini。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Sulafat",
+    "voice2": "Puck",
+    "text": "有些决定，不必很大声。把想说的话写清楚，剩下的，交给声音。我们不做吵闹的口号，只把产品讲明白。",
+    "style": "成年女性品牌旁白，温暖、克制、有质感。不要广告喊麦，不要童声。",
+    "pace": "自然",
+    "accent": "标准普通话",
+    "scene": "三十秒产品短片结尾。"
+  }
+}

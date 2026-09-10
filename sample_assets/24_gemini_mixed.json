@@ -1,0 +1,19 @@
+{
+  "id": "gemini-mixed",
+  "title": "高阶 · 中日英混语",
+  "group": "多语言",
+  "engine": "gemini",
+  "note": "Gemini 才是「一把音色自动念多语言」：选 Aoede，语言码留空，台词里直接写中日英，不必给每句加 <voice>。传统 Cloud 做不到这一档。若把入口改成 Cloud TTS · Gemini，Cloud 仍须填一个主 locale。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Aoede",
+    "voice2": "Puck",
+    "text": "大家好，欢迎来到 TTS Lab。今日は音声ラボへようこそ。Please keep your ticket ready. 我们三点在 Tokyo Station 集合，東京駅の中央改札で待っています。",
+    "style": "成年女性导游，口齿清楚。中文用普通话，英文用英语，日文用日语。专有名词按原文语言读：TTS Lab、Please keep your ticket ready、Tokyo Station、東京駅 都不要用中文拼音或汉字训读去硬念。不要把整段读成同一种口音。",
+    "pace": "自然",
+    "accent": "",
+    "scene": "机场或车站里，向游客交代集合点。",
+    "language": ""
+  }
+}

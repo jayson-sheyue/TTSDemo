@@ -1,0 +1,18 @@
+{
+  "id": "wavenet-japanese",
+  "title": "日语 · WaveNet A",
+  "group": "多语言",
+  "engine": "wavenet",
+  "note": "整段日语用日语声。混语请用「高阶 · 中日英混语」的 <voice>，不要用 <lang> 包汉字日文。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "wavenet",
+    "voice": "ja-JP-Wavenet-A",
+    "language": "ja-JP",
+    "ssml": false,
+    "text": "お待たせしました。次の案内は十五時開始です。改札の前にお集まりください。",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

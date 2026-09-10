@@ -1,0 +1,18 @@
+{
+  "id": "standard-ivr",
+  "title": "独有 · 验证码与日期",
+  "group": "选旧不选新",
+  "engine": "standard",
+  "note": "Standard 也能 SSML 读死验证码和日期。相对 Gemini：不演戏、按字符计费。听逐字和日期。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "standard",
+    "voice": "cmn-CN-Standard-A",
+    "language": "cmn-CN",
+    "ssml": true,
+    "text": "<speak>您的验证码是 <say-as interpret-as=\"characters\">A3K9</say-as>。<break time=\"400ms\"/>会议日是 <say-as interpret-as=\"date\" format=\"ymd\">2026-09-10</say-as>。</speak>",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

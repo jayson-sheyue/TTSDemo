@@ -1,0 +1,18 @@
+{
+  "id": "chirp-english",
+  "title": "英语 · 助手播报",
+  "group": "多语言",
+  "engine": "chirp3-hd",
+  "note": "换语言下拉为 en-US，短名仍是 Kore。请求名是 en-US-Chirp3-HD-Kore。不要写 Gemini 提示词。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "chirp3-hd",
+    "voice": "Kore",
+    "language": "en-US",
+    "ssml": false,
+    "text": "Your next bus leaves at five twenty. Standby at gate B. I can reserve a seat if you want.",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "female-news",
+  "title": "对照 · 女声播报",
+  "group": "入门对照",
+  "note": "Kore 是女声。语气写成「成年女性播报」，和声音一致，声线才稳。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore",
+    "voice2": "Puck",
+    "text": "请把这份通知宣读清楚：会议改到周五上午九点，不要迟到。请各位提前五分钟入场。",
+    "style": "成年女性，口齿清楚、坚定的播报。不要撒娇，也不要老人腔。",
+    "pace": "轻快，保持吐字清晰",
+    "accent": "标准普通话",
+    "scene": "公司内部广播。"
+  },
+  "engine": "gemini"
+}

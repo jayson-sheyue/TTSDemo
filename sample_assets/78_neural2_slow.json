@@ -1,0 +1,18 @@
+{
+  "id": "neural2-slow",
+  "title": "功能 · 语速 0.8",
+  "group": "功能怎么测",
+  "engine": "neural2",
+  "note": "固定 speaking_rate。Studio 页更适合用 break 写死句间停顿。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "neural2",
+    "voice": "en-US-Neural2-J",
+    "language": "en-US",
+    "ssml": false,
+    "text": "Please listen carefully. This rate stays constant for the whole sentence.",
+    "style": "不发送。",
+    "pace": "缓慢，留出思考的停顿"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "wavenet-korean",
+  "title": "韩语 · WaveNet A",
+  "group": "多语言",
+  "engine": "wavenet",
+  "note": "先把语言换成 ko-KR，再选 ko-KR-Wavenet-A。不要用普通话 A 硬读韩文。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "wavenet",
+    "voice": "ko-KR-Wavenet-A",
+    "language": "ko-KR",
+    "ssml": false,
+    "text": "안내입니다. 다음 열차는 다섯 시 이십 분에 출발합니다. 표를 준비해 주세요.",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

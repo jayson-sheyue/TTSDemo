@@ -1,0 +1,18 @@
+{
+  "id": "standard-korean",
+  "title": "韩语 · Standard A",
+  "group": "多语言",
+  "engine": "standard",
+  "note": "语言换成 ko-KR。粤语请用本页「粤语」样例，不要和韩语混在同一把普通话声。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "standard",
+    "voice": "ko-KR-Standard-A",
+    "language": "ko-KR",
+    "ssml": false,
+    "text": "예약이 확인되었습니다. 내일 아침 아홉 시에 방문해 주세요.",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

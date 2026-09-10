@@ -1,0 +1,18 @@
+{
+  "id": "studio-gb",
+  "title": "选声 · 英式 Studio C",
+  "group": "本页声库",
+  "engine": "studio",
+  "note": "声音全表里的 en-GB Studio。换 locale 要同时改语言代码。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "studio",
+    "voice": "en-GB-Studio-C",
+    "language": "en-GB",
+    "ssml": false,
+    "text": "This is a British Studio voice from the official table. Mandarin Studio is not listed.",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

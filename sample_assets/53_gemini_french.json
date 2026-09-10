@@ -1,0 +1,19 @@
+{
+  "id": "gemini-french",
+  "title": "法语 · 导览",
+  "group": "多语言",
+  "engine": "gemini",
+  "note": "适合听口音控制。传统法语请到 Studio / WaveNet 选 fr-FR 声音，不要在那些页写提示词演戏。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Zephyr",
+    "voice2": "Puck",
+    "language": "",
+    "text": "Bienvenue. La visite guidée commence à quinze heures. Rendez-vous devant la grande horloge.",
+    "style": "Adult female, clear Parisian French, polite museum guide. Not Quebec French.",
+    "pace": "自然",
+    "accent": "Parisian French",
+    "scene": "A short tour intro."
+  }
+}

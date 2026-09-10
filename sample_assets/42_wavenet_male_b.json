@@ -1,0 +1,18 @@
+{
+  "id": "wavenet-male-b",
+  "title": "选声 · 男声 B",
+  "group": "年龄怎么控",
+  "engine": "wavenet",
+  "note": "性别来自声音表的 SSML Gender，以及你选的 name。没有 age 字段。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "wavenet",
+    "voice": "cmn-CN-Wavenet-B",
+    "language": "cmn-CN",
+    "ssml": false,
+    "text": "你好，我是 WaveNet 的 B，官方表标注男声。要换女声请选 A 或 D，不要写提示词。",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

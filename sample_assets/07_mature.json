@@ -1,0 +1,18 @@
+{
+  "id": "mature",
+  "title": "声线 · 年长感",
+  "group": "声线怎么写",
+  "note": "官方没有老年档。Gacrux 的形容词是 Mature。把「沉稳、慢、留停顿」写进语气，而不是幻想有一个 age 参数。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Gacrux",
+    "voice2": "Puck",
+    "text": "孩子，有些道理不必急着懂。你把字写清楚，声音自然会跟着来。先听，再改，比一次写满所有形容词更有用。",
+    "style": "成年女性，沉稳的长者感，语速偏慢，留出停顿。这是提示词，不是官方老年档。",
+    "pace": "缓慢，留出思考的停顿",
+    "accent": "标准普通话",
+    "scene": "傍晚的书房，对晚辈说话。"
+  },
+  "engine": "gemini"
+}

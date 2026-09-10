@@ -1,0 +1,17 @@
+{
+  "id": "gemini-ivr-prompt",
+  "title": "对照 · 验证码只能靠提示词",
+  "group": "对照传统",
+  "engine": "gemini",
+  "note": "同一段 IVR，Gemini 只能把读法写进提示词，不能保证逐字或 400ms。听完后打开 WaveNet 页的「独有 · 验证码与日期」。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore",
+    "text": "您的验证码是 A3K9。会议日是 2026-09-10。请回拨 010-1234-5678。",
+    "style": "成年女性客服，口齿清楚。把 A3K9 逐个字母和数字读出，不要读成「A三千K九」。日期读成二零二六年九月十日。电话按号码读。在两句之间稍作停顿。",
+    "pace": "缓慢，留出思考的停顿",
+    "scene": "电话语音通知。",
+    "language": ""
+  }
+}

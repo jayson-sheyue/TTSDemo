@@ -1,0 +1,18 @@
+{
+  "id": "neural2-japanese",
+  "title": "日语 · Neural2 B",
+  "group": "多语言",
+  "engine": "neural2",
+  "note": "日语 Neural2 存在。中文请换语言到 WaveNet/Standard，或用混语样例里的 Standard 声。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "neural2",
+    "voice": "ja-JP-Neural2-B",
+    "language": "ja-JP",
+    "ssml": false,
+    "text": "次の予約は明日の朝九時です。十五分前にお越しください。",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

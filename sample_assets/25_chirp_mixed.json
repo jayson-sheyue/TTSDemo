@@ -1,0 +1,19 @@
+{
+  "id": "chirp-mixed",
+  "title": "高阶 · 中日英混语",
+  "group": "高阶 · 混语",
+  "engine": "chirp3-hd",
+  "note": "下拉框的 Kore + cmn-CN 仍是默认声，管未标记的中文。外语不要写在全文后面，用 <voice> 包住那段。Chirp 没有 <lang>，请用同一短名换 locale：en-US-Chirp3-HD-Kore。关流式。这不是 Gemini 那种自动识别。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "chirp3-hd",
+    "voice": "Kore",
+    "language": "cmn-CN",
+    "ssml": true,
+    "stream": false,
+    "text": "<speak>大家好，欢迎来到实验室。<voice name=\"en-US-Chirp3-HD-Kore\">Please keep your ticket ready. Meet at Tokyo Station.</voice>我们三点集合。<voice name=\"ja-JP-Chirp3-HD-Kore\">東京駅の中央改札で待っています。</voice></speak>",
+    "style": "不发送。Chirp 用 SSML <voice> 换 locale，不是 Gemini 提示词。",
+    "pace": "自然"
+  }
+}

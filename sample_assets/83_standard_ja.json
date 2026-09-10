@@ -1,0 +1,18 @@
+{
+  "id": "standard-japanese",
+  "title": "日语 · Standard A",
+  "group": "多语言",
+  "engine": "standard",
+  "note": "整段日语换日语 Standard。混语见本页高阶样例。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "standard",
+    "voice": "ja-JP-Standard-A",
+    "language": "ja-JP",
+    "ssml": false,
+    "text": "ご予約を確認しました。明日の朝九時にお越しください。",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

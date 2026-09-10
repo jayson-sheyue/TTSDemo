@@ -1,0 +1,18 @@
+{
+  "id": "male-fierce",
+  "title": "声线 · 男声黑帮头目",
+  "group": "声线怎么写",
+  "note": "角色本身是男性时，选男声（这里用沙哑的 Algenib），语气才能写「头目」。声线和人设要同一边。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Algenib",
+    "voice2": "Puck",
+    "text": "给我听好了。今晚谁再把事情办砸，就自己来给我一个交代。别在这儿装傻，也别指望我再给第二次机会。",
+    "style": "成年男性，沙哑、有压迫感，像黑帮头目在训话。不要童声，也不要播音腔。",
+    "pace": "缓慢，留出思考的停顿",
+    "accent": "标准普通话",
+    "scene": "室内对峙，灯光很暗，听的人不敢接话。"
+  },
+  "engine": "gemini"
+}

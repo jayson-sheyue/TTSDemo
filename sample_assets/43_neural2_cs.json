@@ -1,0 +1,18 @@
+{
+  "id": "neural2-cs",
+  "title": "行业 · 英语客服",
+  "group": "业务选型",
+  "engine": "neural2",
+  "note": "英语客服留言：Neural2 音质 + SSML 读电话。官方普通话表没有 Neural2。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "neural2",
+    "voice": "en-US-Neural2-F",
+    "language": "en-US",
+    "ssml": true,
+    "text": "<speak>Thank you for calling. Your ticket number is <say-as interpret-as=\"characters\">4821</say-as>. Please call back at <say-as interpret-as=\"telephone\">650-555-0100</say-as>.</speak>",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

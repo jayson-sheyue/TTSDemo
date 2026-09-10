@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>声音实验室 · Gemini 与传统 Cloud TTS</title><meta name="description" content="按引擎分页学习 Gemini-TTS 与 Chirp / WaveNet / Neural2 / Standard / Studio。"><link rel="stylesheet" href="/static/style.css"><script src="/static/app.js" defer></script></head>
+<body>
+<header>
+<a class="brand" href="/"><span class="brand-icon">◒</span> 声音实验室 <span class="brand-sub">分页对照</span></a>
+<nav aria-label="引擎与文档">
+<button class="nav active" data-page="gemini">Gemini-TTS</button>
+<button class="nav" data-page="chirp3-hd">Chirp 3 HD</button>
+<button class="nav" data-page="wavenet">WaveNet</button>
+<button class="nav" data-page="neural2">Neural2</button>
+<button class="nav" data-page="standard">Standard</button>
+<button class="nav" data-page="studio">Studio</button>
+<button class="nav" data-page="learn">入门指南</button>
+<button class="nav" data-page="sources">官方资料 ↗</button>
+</nav>
+<span class="local">● 本地运行 · Python SDK</span>
+</header>
+<main>
+<div id="workspaces"></div>
+<section id="learn" hidden><div class="page-title"><div class="eyebrow">LEARN BY LISTENING</div><h1>先选对页面，再谈能力。</h1><p>Gemini-TTS 和 Chirp / WaveNet 不是同一张工作台。顶栏每一页只展示该引擎自己的控件和样例。</p></div>
+<div class="learn-grid"><article class="card"><h2>Gemini-TTS 页</h2><p>提示词、音频标签、双人、声线锁定。不要在这里找 SSML 或 WaveNet 声音名。</p></article><article class="card"><h2>传统 Cloud 各页</h2><p>选旧是为了 SSML：日期、电话、验证码、400ms 停顿、按字面朗读。各页有「独有 ·」样例。</p></article><article class="card"><h2>先做这三件事</h2><p>① Gemini 页听「验证码只能靠提示词」<br>② WaveNet 页听「独有 · 验证码与日期」<br>③ Chirp 页听逐字和 IPA</p></article></div>
+<article class="card compare-card"><h2>Gemini-TTS：官方原生支持哪些声音分类？</h2><p class="hint">只描述 Gemini-TTS。核查日期 2026-09-10。</p><div id="voice-rules"></div></article>
+<article class="card compare-card"><h2>Gemini-TTS 三条调用路径</h2><p class="hint">同一套 30 个预置声音。传统 Cloud 不在这张表。</p><div id="compare-providers"></div></article>
+<article class="card compare-card"><h2>Gemini-TTS 四个模型</h2><p class="hint">不要和 Chirp / WaveNet 的家族名混用。</p><div id="compare-models"></div></article>
+<article class="card compare-card"><h2>为什么要分页？</h2><p class="hint">传统 Cloud TTS 的能力写在各自页面上。这张表只帮你决定该点哪一页。</p><div id="compare-classic"></div></article>
+<article class="card compare-card"><h2>什么时候选传统、不选 Gemini-TTS？</h2><p class="hint">传统不是「过时的 Gemini」。IVR、验证码、毫秒停顿要的是 SSML 契约。演戏、双人、标签才用 Gemini 页。各传统页有「独有 ·」样例，Gemini 页有对照样例。</p><div id="compare-why-classic"></div></article>
+<article class="card compare-card"><h2>年龄怎么控？三条路径不一样</h2><p class="hint">官方都没有少年/壮年/老年枚举。Gemini 靠提示词；Chirp 只能换说话人；WaveNet 换 A/B/C/D，pitch 只是音高。</p><div id="compare-age"></div></article>
+<article class="card compare-card"><h2>业务怎么选型？</h2><p class="hint">先对场景，再进对应引擎页听样例。定价以官方价目为准。</p><div id="compare-fit"></div></article>
+<article class="card compare-card"><h2>TTS API 还有、本 Demo 不合成的能力</h2><p class="hint">列出是为了选型和接入时不漏项。克隆、Long audio、News/Polyglot 等请走官方文档。</p><div id="api-out-of-demo"></div></article>
+<div class="button-row"><button class="secondary" id="show-guide">学习指南</button><button class="secondary" id="show-readme">安装与排错 README</button></div><article class="card document" id="guide-content">正在读取学习指南…</article></section>
+<section id="sources" hidden><div class="page-title"><div class="eyebrow">OFFICIAL REFERENCES · 2026.09.10</div><h1>有出处，才有底气。</h1><p>按用途整理官方入口。文档会更新，请以对应服务与模型页为准。</p></div><div id="source-links" class="source-list"></div>
+<article class="card document" id="source-content"></article></section>
+</main>
+<footer><span>◒ 声音实验室</span><span>学习用 Demo · 非 Google 官方产品 · 每个引擎单独一页</span></footer>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "id": "chirp-logistics",
+  "title": "行业 · 物流播报",
+  "group": "业务选型",
+  "engine": "chirp3-hd",
+  "note": "按字面播报。单号若必须逐字，用本页「独有 · 逐字与 IPA」，不要写提示词。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "chirp3-hd",
+    "voice": "Charon",
+    "language": "cmn-CN",
+    "ssml": false,
+    "text": "您的包裹已离开分拨中心，预计明日送达。请保持电话畅通。如地址变更，请在今日十八点前联系客服。",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "japanese-guide",
+  "title": "日语 · 案内",
+  "group": "多语言",
+  "note": "语言代码按入口填写：Gemini 可用 ja，Cloud 需要 ja-JP。先预览请求再生成。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Aoede",
+    "voice2": "Puck",
+    "text": "こんにちは。音声ラボへようこそ。今日は、言葉を声に変えてみましょう。慌てなくて大丈夫です。",
+    "style": "Adult female, friendly and clear Japanese narration. Not too fast.",
+    "pace": "自然",
+    "accent": "",
+    "scene": "A small workshop introduction.",
+    "language": "ja"
+  },
+  "engine": "gemini"
+}

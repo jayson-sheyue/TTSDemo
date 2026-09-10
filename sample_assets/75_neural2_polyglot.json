@@ -1,0 +1,18 @@
+{
+  "id": "neural2-polyglot",
+  "title": "选声 · Polyglot 1",
+  "group": "本页声库",
+  "engine": "neural2",
+  "note": "Polyglot 是官方表中的独立声音名。不要把它理解成 Gemini 那种自动混语。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "neural2",
+    "voice": "en-US-Polyglot-1",
+    "language": "en-US",
+    "ssml": false,
+    "text": "This is the Polyglot voice from the official table. It is selected by name, not by a prompt.",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

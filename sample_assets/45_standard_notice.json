@@ -1,0 +1,18 @@
+{
+  "id": "standard-notice",
+  "title": "行业 · 低成本通知",
+  "group": "业务选型",
+  "engine": "standard",
+  "note": "成本试点：Standard + SSML。官方价目有免费额度。质感要求高请 WaveNet/Chirp/Gemini。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "standard",
+    "voice": "cmn-CN-Standard-A",
+    "language": "cmn-CN",
+    "ssml": true,
+    "text": "<speak>系统通知：您的预约已确认。<break time=\"400ms\"/>到达时间是 <say-as interpret-as=\"date\" format=\"ymd\">2026-09-12</say-as>。</speak>",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

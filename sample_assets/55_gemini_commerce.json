@@ -1,0 +1,18 @@
+{
+  "id": "gemini-commerce",
+  "title": "行业 · 电商口播",
+  "group": "业务选型",
+  "engine": "gemini",
+  "note": "短视频口播要能量，但仍要咬字。价格和法律条款不要靠提示词赌读法。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Laomedeia",
+    "voice2": "Puck",
+    "text": "今晚八点开售。新配色只有这一轮。喜欢的话先加购物车，库存见页面。不包邮的地区，结账前看运费。",
+    "style": "成年女性，轻快、有邀请感，像直播口播。咬字清楚，不要尖叫，不要童声。",
+    "pace": "轻快，保持吐字清晰",
+    "accent": "标准普通话",
+    "scene": "十五秒商品短视频。"
+  }
+}

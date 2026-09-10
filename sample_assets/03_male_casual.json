@@ -1,0 +1,18 @@
+{
+  "id": "male-casual",
+  "title": "对照 · 男声闲聊",
+  "group": "入门对照",
+  "note": "Puck 是男声。和上一条用同一类短句对比，听的是声线，不是台词。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Puck",
+    "voice2": "Kore",
+    "text": "嘿，别走神。TTS 不是变声器，它只是把你写好的字读出来。声音选错了，再凶的词也会跟着跑偏。",
+    "style": "成年男性，活泼，像朋友聊天。不要童声。",
+    "pace": "轻快，保持吐字清晰",
+    "accent": "标准普通话",
+    "scene": "工作台旁的随口提醒。"
+  },
+  "engine": "gemini"
+}

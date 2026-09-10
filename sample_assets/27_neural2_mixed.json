@@ -1,0 +1,18 @@
+{
+  "id": "neural2-mixed",
+  "title": "高阶 · 中日英混语",
+  "group": "高阶 · 混语",
+  "engine": "neural2",
+  "note": "本页主声音是英语 Neural2。SSML 的 <voice> 不能切到 WaveNet。中文、日文请换 Standard 声音。不要指望一把 en-US-Neural2 把汉字和假名读准。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "neural2",
+    "voice": "en-US-Neural2-C",
+    "language": "en-US",
+    "ssml": true,
+    "text": "<speak>Welcome to TTS Lab.<break time=\"280ms\"/><voice name=\"cmn-CN-Standard-A\">欢迎来到声音实验室。我们三点集合。</voice><break time=\"280ms\"/><voice name=\"ja-JP-Standard-A\">東京駅の中央改札で待っています。</voice></speak>",
+    "style": "不发送。Neural2 请求里换声，只能换到文档允许的家族。",
+    "pace": "自然"
+  }
+}

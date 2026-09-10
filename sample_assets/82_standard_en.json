@@ -1,0 +1,18 @@
+{
+  "id": "standard-english",
+  "title": "英语 · Standard C",
+  "group": "多语言",
+  "engine": "standard",
+  "note": "英语 Standard 全表字母很多，语言下拉后可见。要 Neural 音质去 Neural2 页。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "standard",
+    "voice": "en-US-Standard-C",
+    "language": "en-US",
+    "ssml": false,
+    "text": "Your booking is confirmed. Please arrive at nine tomorrow and bring identification.",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

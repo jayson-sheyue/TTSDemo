@@ -1,0 +1,19 @@
+{
+  "id": "english-story",
+  "title": "英语 · 故事",
+  "group": "多语言",
+  "note": "口音写具体，例如 British English，比只写「英语」更有效。语言代码可留空，或填 en。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Vindemiatrix",
+    "voice2": "Puck",
+    "text": "The rain stopped just as she reached the old bookshop. Behind the window, a small light was still on. She waited a moment, then pushed the door.",
+    "style": "An adult female storyteller. Gentle, unhurried, British English. Do not rush the last sentence.",
+    "pace": "缓慢，留出思考的停顿",
+    "accent": "British English",
+    "scene": "A quiet evening narration.",
+    "language": "en"
+  },
+  "engine": "gemini"
+}

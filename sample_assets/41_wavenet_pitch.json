@@ -1,0 +1,19 @@
+{
+  "id": "wavenet-pitch",
+  "title": "音高 · +4 半音（不是童声）",
+  "group": "年龄怎么控",
+  "engine": "wavenet",
+  "note": "同一把 A，只把 AudioConfig.pitch 设为 +4。这是音高，官方不当作少年档。Chirp 页不会发送 pitch。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "wavenet",
+    "voice": "cmn-CN-Wavenet-A",
+    "language": "cmn-CN",
+    "ssml": false,
+    "pitch": 4,
+    "text": "这还是 WaveNet A。你听到更尖，是因为请求里带了 pitch 加四半音，不是选了儿童声。",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

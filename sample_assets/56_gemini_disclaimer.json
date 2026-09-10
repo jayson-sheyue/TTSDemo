@@ -1,0 +1,18 @@
+{
+  "id": "gemini-disclaimer",
+  "title": "行业 · 免责声明（对照）",
+  "group": "对照传统",
+  "engine": "gemini",
+  "note": "法律稿用 Gemini 会演戏、可能发挥。同一段去 WaveNet 页听 SSML 版，比较谁更适合合规朗读。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore",
+    "voice2": "Puck",
+    "text": "本服务按现状提供。利率、额度与到账时间以审核结果为准，页面展示不构成要约。如有疑问，请阅读完整条款。",
+    "style": "成年女性，平稳、中性、不推销。尽量按字面读，不要加情绪。",
+    "pace": "自然",
+    "accent": "标准普通话",
+    "scene": "应用内语音披露。"
+  }
+}

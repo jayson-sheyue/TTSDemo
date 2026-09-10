@@ -1,0 +1,18 @@
+{
+  "id": "studio-en",
+  "title": "Studio · 英语旁白",
+  "group": "本页样例",
+  "engine": "studio",
+  "note": "Studio 偏有声书。本 Demo 只有英语 Studio-O / Q。提示词不会发送。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "studio",
+    "voice": "en-US-Studio-O",
+    "language": "en-US",
+    "ssml": true,
+    "text": "<speak>The rain stopped just as she reached the old bookshop.<break time=\"400ms\"/>Behind the window, a small light was still on.</speak>",
+    "style": "不发送。用 SSML break 留出句间停顿。",
+    "pace": "缓慢，留出思考的停顿"
+  }
+}

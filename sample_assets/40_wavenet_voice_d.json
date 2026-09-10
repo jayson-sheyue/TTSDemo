@@ -1,0 +1,18 @@
+{
+  "id": "wavenet-voice-d",
+  "title": "选声 · 女声 D（另一人）",
+  "group": "年龄怎么控",
+  "engine": "wavenet",
+  "note": "普通话 WaveNet 官方只有 A–D。A 和 D 都是女声，但是两个训练说话人，不是少年/老年档。对照「女声通知」里的 A。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "wavenet",
+    "voice": "cmn-CN-Wavenet-D",
+    "language": "cmn-CN",
+    "ssml": false,
+    "text": "你好，我是 WaveNet 的 D。和 A 一样是女声，但是另一把训练好的声音。官方表没有年龄列。",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

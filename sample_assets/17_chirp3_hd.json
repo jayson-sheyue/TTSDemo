@@ -1,0 +1,21 @@
+{
+  "id": "chirp3-hd",
+  "title": "传统 · Chirp 3 HD",
+  "group": "传统 Cloud TTS",
+  "note": "Chirp 3: HD 走 Cloud text:synthesize，声音名是 cmn-CN-Chirp3-HD-Kore。看起来像 Gemini 的 Kore，但不是 Gemini-TTS，提示词不会演戏。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "chirp3-hd",
+    "voice": "Kore",
+    "voice2": "Puck",
+    "language": "cmn-CN",
+    "ssml": false,
+    "text": "你好，这是 Chirp 3 HD。我还是那个 Kore 的名字，但合成路径已经换成传统 Cloud TTS。",
+    "style": "传统路径不使用这段 Gemini 提示词。如需停顿，请改勾选 SSML。",
+    "pace": "自然",
+    "accent": "",
+    "scene": ""
+  },
+  "engine": "chirp3-hd"
+}

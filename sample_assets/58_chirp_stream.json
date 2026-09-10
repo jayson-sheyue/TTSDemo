@@ -1,0 +1,19 @@
+{
+  "id": "chirp-stream",
+  "title": "功能 · 流式助手",
+  "group": "功能怎么测",
+  "engine": "chirp3-hd",
+  "note": "Chirp 可流式。流式时不要勾选 SSML。这是对话式助手场景，不是 Gemini 标签演戏。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "chirp3-hd",
+    "voice": "Puck",
+    "language": "cmn-CN",
+    "ssml": false,
+    "stream": true,
+    "text": "已为你查到两班车。最近一班十七点二十出发。需要我帮你留座吗？",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

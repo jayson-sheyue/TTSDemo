@@ -1,0 +1,18 @@
+{
+  "id": "wavenet-slow",
+  "title": "功能 · 语速 0.8",
+  "group": "功能怎么测",
+  "engine": "wavenet",
+  "note": "speaking_rate 是请求里的数字，不是「请读慢一点」这种提示词。对照 Gemini 页只改语气的慢。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "wavenet",
+    "voice": "cmn-CN-Wavenet-A",
+    "language": "cmn-CN",
+    "ssml": false,
+    "text": "请听好。这是固定语速。每一句都会按同一个 speaking_rate 来读，不会越读越慢。",
+    "style": "不发送。",
+    "pace": "缓慢，留出思考的停顿"
+  }
+}

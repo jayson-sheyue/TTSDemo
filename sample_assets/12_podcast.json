@@ -1,0 +1,20 @@
+{
+  "id": "podcast",
+  "title": "场景 · 双人播客",
+  "group": "情绪与对话",
+  "note": "双人必须每行 Host: / Guest: 开头，且和右侧角色名完全一致。两位各选一个声音。语气里可以分别规定两个人。",
+  "config": {
+    "mode": "dialogue",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore",
+    "voice2": "Puck",
+    "speaker": "Host",
+    "speaker2": "Guest",
+    "text": "Host: TTS 到底是什么？\nGuest: 就是把已经写好的文字，变成可以听的语音。\nHost: 那我选了女声，为什么有时听起来像男的？\nGuest: 因为语气里的角色如果默认是男的，模型会跟着演。先锁声线，再写情绪。",
+    "style": "Host 是好奇的成年女性；Guest 是耐心的成年男性。两位朋友自然交谈，不要抢话。",
+    "pace": "自然",
+    "accent": "标准普通话",
+    "scene": "小播客录音室。"
+  },
+  "engine": "gemini"
+}

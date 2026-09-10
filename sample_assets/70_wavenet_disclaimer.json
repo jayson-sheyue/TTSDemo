@@ -1,0 +1,18 @@
+{
+  "id": "wavenet-disclaimer",
+  "title": "行业 · 条款按字面",
+  "group": "业务选型",
+  "engine": "wavenet",
+  "note": "对照 Gemini「免责声明」。这里没有导演阐述，读的就是 SSML / 文本。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "wavenet",
+    "voice": "cmn-CN-Wavenet-B",
+    "language": "cmn-CN",
+    "ssml": true,
+    "text": "<speak>本服务按现状提供。<break time=\"350ms\"/>利率与额度以审核结果为准。<break time=\"350ms\"/>页面展示不构成要约。</speak>",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

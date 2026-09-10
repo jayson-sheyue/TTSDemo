@@ -1,0 +1,18 @@
+{
+  "id": "neural2-voice-j",
+  "title": "选声 · 男声 J",
+  "group": "年龄怎么控",
+  "engine": "neural2",
+  "note": "en-US Neural2 官方 A/C/D/E/F/G/H/I/J 本页都能选。换 J 是换说话人，不是年龄档。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "neural2",
+    "voice": "en-US-Neural2-J",
+    "language": "en-US",
+    "ssml": false,
+    "text": "This is Neural2 J, a male speaker from the official en-US list. There is no age enum. Pick another letter to hear a different person.",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

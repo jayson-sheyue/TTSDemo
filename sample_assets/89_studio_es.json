@@ -1,0 +1,18 @@
+{
+  "id": "studio-spanish",
+  "title": "西班牙语 · Studio C",
+  "group": "多语言",
+  "engine": "studio",
+  "note": "es-ES Studio 叙述声。IVR 验证码请用 Neural2 / WaveNet，不要用 Studio 档价去读验证码。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "studio",
+    "voice": "es-ES-Studio-C",
+    "language": "es-ES",
+    "ssml": false,
+    "text": "La lluvia había cesado. Se detuvo bajo el reloj y volvió a leer la carta.",
+    "style": "不发送。",
+    "pace": "缓慢，留出思考的停顿"
+  }
+}

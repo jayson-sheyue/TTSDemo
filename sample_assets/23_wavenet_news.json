@@ -1,0 +1,18 @@
+{
+  "id": "wavenet-news",
+  "title": "WaveNet · 女声通知",
+  "group": "本页样例",
+  "engine": "wavenet",
+  "note": "和 Gemini 页的「女声播报」场景类似，但这里只能靠声音名 + SSML，不能写「坚定的成年女性」。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "wavenet",
+    "voice": "cmn-CN-Wavenet-A",
+    "language": "cmn-CN",
+    "ssml": true,
+    "text": "<speak>请把这份通知宣读清楚：<break time=\"300ms\"/>会议改到周五上午九点，不要迟到。</speak>",
+    "style": "不发送。",
+    "pace": "轻快，保持吐字清晰"
+  }
+}

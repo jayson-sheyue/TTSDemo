@@ -1,0 +1,19 @@
+{
+  "id": "gemini-stream",
+  "title": "功能 · 边生成边播放",
+  "group": "功能怎么测",
+  "engine": "gemini",
+  "note": "Gemini API 仅 3.1 可流式。Vertex / Cloud 的 2.5 也可视区域流式。听的是到达节奏，不是另一种声线。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore",
+    "voice2": "Puck",
+    "text": "这一句会边生成边送到播放器。如果你选的是 Gemini API 的 2.5，请先关掉流式或改用 3.1。",
+    "style": "成年女性，口齿清楚，像在演示功能。不要把说明读成广告。",
+    "pace": "自然",
+    "accent": "标准普通话",
+    "scene": "功能演示。",
+    "stream": true
+  }
+}

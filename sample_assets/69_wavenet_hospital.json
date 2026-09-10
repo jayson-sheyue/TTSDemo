@@ -1,0 +1,18 @@
+{
+  "id": "wavenet-hospital",
+  "title": "行业 · 叫号",
+  "group": "业务选型",
+  "engine": "wavenet",
+  "note": "叫号要逐字、停顿可控。这是 SSML 契约，不是安抚演技。安抚口吻去 Gemini「就诊提醒」。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "wavenet",
+    "voice": "cmn-CN-Wavenet-A",
+    "language": "cmn-CN",
+    "ssml": true,
+    "text": "<speak>请 <say-as interpret-as=\"characters\">A17</say-as> 号到 <break time=\"300ms\"/>三号诊室。<break time=\"400ms\"/>请 <say-as interpret-as=\"characters\">A18</say-as> 号等候。</speak>",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

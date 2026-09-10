@@ -1,0 +1,14 @@
+{
+  "model": "gemini-3.1-flash-tts-preview",
+  "display_name": "tts-lab-inline-demo",
+  "requests": [
+    {
+      "text": "Synthesize speech. Read only the transcript, not the directions.\n\nTRANSCRIPT:\n你好，这是第一条批量示例。",
+      "voice": "Kore"
+    },
+    {
+      "text": "Synthesize speech. Read only the transcript, not the directions.\n\nTRANSCRIPT:\nHello, this is the second batch sample.",
+      "voice": "Puck"
+    }
+  ]
+}

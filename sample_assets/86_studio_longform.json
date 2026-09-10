@@ -1,0 +1,20 @@
+{
+  "id": "studio-longform",
+  "title": "长文 · 章节拼接",
+  "group": "功能怎么测",
+  "engine": "studio",
+  "note": "有声书章节用分段拼接。句间停顿仍应用 SSML break，不要写「请停一下」。无普通话 Studio。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "studio",
+    "voice": "en-US-Studio-O",
+    "language": "en-US",
+    "ssml": false,
+    "chunk": true,
+    "chunk_bytes": 400,
+    "text": "The rain had stopped before midnight, but the streets still held a thin shine. She walked past the closed bakery, the bookshop, and the steps where the old cat usually slept. None of the windows were lit, except one on the third floor, which trembled whenever a bus passed. She did not hurry. The letter in her pocket was already a day late, and one more hour would not change the words. At the corner she paused, counted the streetlamps, and turned toward the river as if she had always meant to go that way. Behind her, a bicycle bell rang once and was gone. The city, for a moment, sounded like a held breath.",
+    "style": "不发送。",
+    "pace": "缓慢，留出思考的停顿"
+  }
+}

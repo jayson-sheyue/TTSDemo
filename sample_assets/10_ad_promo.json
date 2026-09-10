@@ -1,0 +1,18 @@
+{
+  "id": "ad-promo",
+  "title": "场景 · 品牌广告",
+  "group": "应用场景",
+  "note": "广告要有能量，但仍要咬字清楚。语速选「轻快」，比在语气里堆很多感叹号更稳。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Laomedeia",
+    "voice2": "Puck",
+    "text": "今晚八点，城市灯光节准时点亮。带上朋友，沿着江边走一圈。入场免费，记得提前在小程序预约。我们在灯火里等你。",
+    "style": "成年女性，活泼、有邀请感，像品牌短视频口播。咬字清楚，不要尖叫。",
+    "pace": "轻快，保持吐字清晰",
+    "accent": "标准普通话",
+    "scene": "十五秒城市活动宣传。"
+  },
+  "engine": "gemini"
+}

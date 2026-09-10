@@ -1,0 +1,18 @@
+{
+  "id": "studio-pacing",
+  "title": "独有 · 写死的句间停顿",
+  "group": "选旧不选新",
+  "engine": "studio",
+  "note": "有声书节奏用 break 写成 400ms / 800ms。Gemini 只能说「停一下」。Studio 官方是高档字符价，不是更便宜的旧模型。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "studio",
+    "voice": "en-US-Studio-O",
+    "language": "en-US",
+    "ssml": true,
+    "text": "<speak>The rain stopped.<break time=\"800ms\"/>She reached the old bookshop.<break time=\"400ms\"/>Behind the window, a small light was still on.</speak>",
+    "style": "不发送。",
+    "pace": "缓慢，留出思考的停顿"
+  }
+}

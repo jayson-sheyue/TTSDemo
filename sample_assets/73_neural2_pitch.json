@@ -1,0 +1,19 @@
+{
+  "id": "neural2-pitch",
+  "title": "功能 · 音高 +4",
+  "group": "功能怎么测",
+  "engine": "neural2",
+  "note": "AudioConfig.pitch。不是年龄档。普通话请用 WaveNet 页。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "neural2",
+    "voice": "en-US-Neural2-C",
+    "language": "en-US",
+    "ssml": false,
+    "pitch": 4,
+    "text": "This is still Neural2 C. A higher pitch is not a child voice setting.",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

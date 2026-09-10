@@ -1,0 +1,19 @@
+{
+  "id": "chirp-precise",
+  "title": "独有 · 逐字与 IPA",
+  "group": "选旧不选新",
+  "engine": "chirp3-hd",
+  "note": "Chirp 同步 SSML 子集：逐字、sub 替换读法、IPA。Gemini 没有这些字段。必须关流式。官方示例用 manitoba 演示 phoneme。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "chirp3-hd",
+    "voice": "Kore",
+    "language": "en-US",
+    "ssml": true,
+    "stream": false,
+    "text": "<speak>Your code is <say-as interpret-as=\"characters\">A3K9</say-as>. The <sub alias=\"World Wide Web Consortium\">W3C</sub> meeting is in <phoneme alphabet=\"ipa\" ph=\"ˌmænɪˈtoʊbə\">manitoba</phoneme>.<break time=\"400ms\"/>Please hold.</speak>",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "wavenet-ivr",
+  "title": "独有 · 验证码与日期",
+  "group": "选旧不选新",
+  "engine": "wavenet",
+  "note": "这是传统 Cloud 相对 Gemini 的核心优势：读法写在 SSML 里，而不是提示词。对照 Gemini 页「验证码只能靠提示词」。听 A3K9 是否逐字、日期是否像日期、400ms 是否像停顿。",
+  "config": {
+    "provider": "classic",
+    "mode": "single",
+    "model": "wavenet",
+    "voice": "cmn-CN-Wavenet-A",
+    "language": "cmn-CN",
+    "ssml": true,
+    "text": "<speak>您的验证码是 <say-as interpret-as=\"characters\">A3K9</say-as>。<break time=\"400ms\"/>会议日是 <say-as interpret-as=\"date\" format=\"ymd\">2026-09-10</say-as>。<break time=\"400ms\"/>请回拨 <say-as interpret-as=\"telephone\">010-1234-5678</say-as>。</speak>",
+    "style": "不发送。",
+    "pace": "自然"
+  }
+}

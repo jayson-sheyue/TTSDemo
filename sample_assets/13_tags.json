@@ -1,0 +1,18 @@
+{
+  "id": "tags",
+  "title": "情绪 · 低语与笑声",
+  "group": "情绪与对话",
+  "note": "行内标签用英语，例如 [whispers]。3.1 更适合。标签写在台词里，不要指望单独一个「情绪旋钮」。",
+  "config": {
+    "mode": "single",
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore",
+    "voice2": "Puck",
+    "text": "[whispers] 我告诉你一个秘密。\n[laughs] 原来，你也知道！\n[sighs] 那我们就不装了。",
+    "style": "成年女性。先神秘地低语，再轻松地笑，最后无奈地叹气。不要把标签三个字读出来。",
+    "pace": "自然",
+    "accent": "标准普通话",
+    "scene": "对一位老朋友说悄悄话。"
+  },
+  "engine": "gemini"
+}
