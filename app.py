@@ -1,4 +1,4 @@
-"""Local web demo. Run: python -m uvicorn app:app --host 127.0.0.1 --port 8001."""
+"""Web demo. Local: uvicorn app:app --host 127.0.0.1 --port 8001. Cloud Run: set by Procfile / K_SERVICE."""
 import base64
 import json
 import os
@@ -22,8 +22,28 @@ from tts import Request, UserError, adc_available, audio_chunks, error_payload, 
 ROOT = Path(__file__).resolve().parent
 load_dotenv(ROOT / '.env')
 SAMPLES = load_samples()
+
+
+def allowed_hosts() -> list[str]:
+    """Local loopback by default; Cloud Run (K_SERVICE) also allows *.run.app; optional ALLOWED_HOSTS."""
+    hosts = ['localhost', '127.0.0.1', '[::1]', 'testserver']
+    if os.getenv('K_SERVICE'):
+        hosts.append('*.run.app')
+    for item in os.getenv('ALLOWED_HOSTS', '').split(','):
+        host = item.strip()
+        if host and host not in hosts:
+            hosts.append(host)
+    return hosts
+
+
+def bind_host_port(default_port: str = '8001') -> tuple[str, int]:
+    if os.getenv('K_SERVICE'):
+        return '0.0.0.0', int(os.getenv('PORT') or '8080')
+    return '127.0.0.1', int(os.getenv('DEMO_PORT') or default_port)
+
+
 app = FastAPI(title='Gemini 声音实验室', description='Python SDK · 本地教学 Demo')
-app.add_middleware(TrustedHostMiddleware, allowed_hosts=['localhost', '127.0.0.1', '[::1]', 'testserver'])
+app.add_middleware(TrustedHostMiddleware, allowed_hosts=allowed_hosts())
 app.mount('/static', StaticFiles(directory=ROOT / 'static'), name='static')
 generation_lock = threading.Lock()
 
@@ -33,7 +53,7 @@ async def local_only(request: WebRequest, call_next):
     if request.method == 'POST':
         origin = request.headers.get('origin')
         if origin and origin != str(request.base_url).rstrip('/'):
-            return JSONResponse({'detail': '请从本地 Demo 页面发起请求。'}, status_code=403)
+            return JSONResponse({'detail': '请从本 Demo 页面发起请求。'}, status_code=403)
         if request.headers.get('content-type', '').split(';')[0] != 'application/json':
             return JSONResponse({'detail': '需要 JSON 请求。'}, status_code=415)
         body = await request.body()
@@ -237,4 +257,5 @@ def draft(r: Draft):
 
 if __name__ == '__main__':
     import uvicorn
-    uvicorn.run('app:app', host='127.0.0.1', port=int(os.getenv('DEMO_PORT', '8001')), reload=False)
+    host, port = bind_host_port('8001')
+    uvicorn.run('app:app', host=host, port=port, reload=False)

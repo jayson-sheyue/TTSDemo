@@ -201,3 +201,22 @@ def test_rejects_wrong_host_and_content_type(client):
     assert bad_host.status_code == 400
     plain = client.post('/api/preview', content='text=hi', headers={'content-type': 'text/plain'})
     assert plain.status_code == 415
+
+
+def test_bind_defaults_local(monkeypatch):
+    from app import allowed_hosts, bind_host_port
+    monkeypatch.delenv('K_SERVICE', raising=False)
+    monkeypatch.delenv('PORT', raising=False)
+    monkeypatch.setenv('DEMO_PORT', '8123')
+    assert bind_host_port('8001') == ('127.0.0.1', 8123)
+    monkeypatch.delenv('ALLOWED_HOSTS', raising=False)
+    assert 'localhost' in allowed_hosts()
+    assert '*.run.app' not in allowed_hosts()
+
+
+def test_bind_cloud_run(monkeypatch):
+    from app import allowed_hosts, bind_host_port
+    monkeypatch.setenv('K_SERVICE', 'tts-demo')
+    monkeypatch.setenv('PORT', '8080')
+    assert bind_host_port('8001') == ('0.0.0.0', 8080)
+    assert '*.run.app' in allowed_hosts()
